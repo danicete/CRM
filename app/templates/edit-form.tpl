@@ -1,0 +1,76 @@
+<div class="edit-form-wrapper">
+
+	<h1 class="maintitle">Editing Request #{"%05d"|sprintf:$requestData.id}</h1>
+	<div class="edit-form-container clearfix">
+		<section id="edit-form-campaign" class="edit-form-section clearfix">
+			{foreach from=$campaignInfo item=c name=campaignLoop}
+			<div class="edit-row clearfix">
+				<div class="edit-form-label">{$c.title}</div>
+				<div class="edit-form-field edit-{$c.type}">
+					<div id="edit-field-value-{$smarty.foreach.campaignLoop.index+1}" class="edit-form-field-value">
+						<div class="edit-value-display" id="{$c.fieldDOMId}" {if $c.userID}data-authuserid="{$c.userID}"{/if}>{$c.value}</div>
+						<input type="text" class="edit-form-field-input" style="display: none;" value="{$c.value}" />
+						<input type="hidden" class="edit-original-value" value="{if $c.userID}{$c.userID}{else}{$c.value}{/if}" />
+						<span class="edit-tooltip">Click to Edit</span>
+					</div>
+				</div>
+			</div>
+			{/foreach}
+		</section><!-- #edit-form-campaign -->
+		<section id="edit-form-summary" class="edit-form-section">
+			<h2 class="edit-section-title">Request Summary</h2>
+			<div class="edit-form-summary-container edit-form-field-value">
+				<div class="edit-value-display" id="summary">{$requestData.summary}</div>
+				<textarea id="test" class="edit-form-textarea" style="display: none;">{$requestData.summary}</textarea>
+				<input type="hidden" class="edit-original-value" value="{$requestData.summary}" />
+				<span class="edit-tooltip">Click to Edit</span>
+			</div>	
+			<h2 class="edit-section-title">FTP Information</h2>
+			<div class="edit-form-summary-container edit-form-field-value">
+				<div class="edit-value-display" id="ftpinfo">{$requestData.ftpinfo}</div>
+				<textarea class="edit-form-textarea" style="display: none;">{$requestData.ftpinfo}</textarea>
+				<input type="hidden" class="edit-original-value" value="{$requestData.ftpinfo}" />
+				<span class="edit-tooltip">Click to Edit</span>
+			</div>	
+		</section><!-- #edit-form-summary -->
+		<section id="edit-form-timeline" class="edit-form-section">
+			{foreach from=$timelineInfo item=c name=timelineLoop}
+			<div class="edit-row clearfix">
+				<div class="edit-form-label timeline-label">{$c.title}</div>
+				<div class="edit-form-field edit-{$c.type}">
+					<div id="edit-field-value-{$smarty.foreach.campaignLoop.index+$smarty.foreach.timelineLoop.index+2}" class="edit-form-field-value">
+						<div class="edit-value-display" id="{$c.fieldDOMId}">{$c.value|date_format:"%m/%d/%Y"}</div>
+						<input type="text" class="edit-form-field-input" style="display: none;" value="{$c.value|date_format:"%m/%d/%Y"}" />
+						<input type="hidden" class="edit-original-value" value="{$c.value|date_format:"%m/%d/%Y"}" />
+						<span class="edit-tooltip">Click to Edit</span>
+					</div>
+				</div>
+			</div>
+			{/foreach}
+		</section><!-- #edit-form-timeline -->
+		<div class="clearfix"></div>
+		<section id="edit-form-units" class="edit-form-section">
+			<h2 class="edit-section-title">Requested Units</h2>
+			{foreach from=$unitsInfo item=unit name=unitsLoop}
+				{include file="_blocks/unitDOMblock.tpl"}
+			{/foreach}
+				<div class="edit-request-container">
+					<div class="addRequestContent">Request Another Unit</div>
+				</div>	
+		</section><!-- #edit-form-units -->
+	</div><!-- .edit-form-container -->
+	<div class="edit-form-user-buttons-container clearfix">
+		<div class="edit-form-user-button" id="resetform">
+			Reset Form
+		</div>
+		<div class="edit-form-user-button" id="saveform">
+			Save Changes
+		</div>
+	</div>
+	{include file="_components/addRequestDialog.tpl"}
+	{include file="_components/removeUnitDialog.tpl"}
+	<input type="hidden" id="formSavePostURL" value="{$path.siteRoot}/edit/" />
+	<input type="hidden" id="editAjaxURL" value="{$path.siteRoot}/edit.ajax/" />
+	<input type="hidden" id="formID" value="{$requestData.id}" />
+	<input type="hidden" id="formPin" value="{$requestData.pin}" />
+</div><!-- .edit-form-wrapper -->
