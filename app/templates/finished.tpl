@@ -39,7 +39,7 @@
   <div role="main">
     <div id="site">
       <div id="content">
-        {include file="_components/authbar.tpl"}
+        {include file=$authBar}
         <h1 class="maintitle">Request Complete</h1>
         <div id="form-complete-page" class="form-page">
           <h2>You've successfully submitted a Creative Request!</h2>

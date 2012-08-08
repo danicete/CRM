@@ -28,7 +28,7 @@
   <div role="main">
     <div id="site">
       <div id="content">
-        {include file="_components/authbar.tpl"}
+        {include file=$authBar}
         <h1 class="maintitle">Viewing Request #{"%05d"|sprintf:$requestRow.id}</h1>
 	        <div class="full-page-container clearfix">
 	        	{if $requestFound == 1}

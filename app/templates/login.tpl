@@ -39,7 +39,7 @@
   <div role="main">
     <div id="site">
       <div id="content">
-        {include file="_components/authbar.tpl"}
+        {include file=$authBar}
         <h1 class="maintitle">Login</h1>
         <form class="login-form clearfix" method="POST" action="{$path.siteRoot}/login/?s=form&f={$loginForwardString}">
           <div class="login-form-title">Curse Email</div>

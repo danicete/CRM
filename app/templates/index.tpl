@@ -39,7 +39,7 @@
   <div role="main">
     <div id="site">
       <div id="content">
-        {include file="_components/authbar.tpl"}
+        {include file=$authBar}
         <h1 class="maintitle">Creative Request Manager</h1>
         <a class="optionButton new" href="{$path.siteRoot}/new/">
           <div class="optionButtonContent">

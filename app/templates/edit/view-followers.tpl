@@ -26,7 +26,7 @@
   <div role="main">
     <div id="site">
       <div id="content">
-        {include file="_components/authbar.tpl"}
+        {include file=$authBar}
         <h1 class="maintitle">Followers for Request #{"%05d"|sprintf:$requestPin}</h1>
 	        <div class="half-page-container clearfix">
 	        	<div>People following this request:</div>

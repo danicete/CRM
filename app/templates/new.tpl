@@ -28,7 +28,7 @@
   <div role="main">
     <div id="site">
       <div id="content">
-        {include file="_components/authbar.tpl"}
+        {include file=$authBar}
         <h1 class="maintitle">New Creative Request</h1>
         <div class="formContainer">
           <div class="form-content-container">

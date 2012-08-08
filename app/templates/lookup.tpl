@@ -40,7 +40,7 @@
   <div role="main">
     <div id="site">
       <div id="content">
-        {include file="_components/authbar.tpl"}
+        {include file=$authBar}
         <h1 class="maintitle">Find a Request</h1>
         <div class="page-lookup">
           <div class="lookup-options-container">

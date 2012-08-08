@@ -33,4 +33,4 @@
 	$PATH['physical']['engine']			= $PATH['physical']['app'] . '/engine';
 	$PATH['physical']['templates'] 		= $PATH['physical']['app'] . '/templates';
 	$PATH['physical']['lib']			= $PATH['physical']['app'] . '/lib';
-	$PATH['physical']['assets']			= $PATH['physical']['siteRoot'] . '/www/assets';
+	$PATH['physical']['assets']			= $PATH['physical']['siteRoot'] . '/assets';

@@ -28,7 +28,7 @@
   <div role="main">
     <div id="site">
       <div id="content">
-        {include file="_components/authbar.tpl"}
+        {include file=$authBar}
         <h1 class="maintitle">Set your password, {$user.name}</h1>
         <div style="margin: 20px auto; width: 260px;">
           <input type="password" id="newPass" />

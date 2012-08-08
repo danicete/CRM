@@ -41,7 +41,7 @@
   <div role="main">
     <div id="site">
       <div id="content">
-        {include file="_components/authbar.tpl"}
+        {include file=$authBar}
 	        <div class="edit-page-container clearfix">
             {$editPageContent}
 	        </div>

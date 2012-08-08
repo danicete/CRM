@@ -48,6 +48,7 @@
 	$smarty->assign("authMessage", "You are not currently signed in.");
 	$smarty->assign("authName", $auth->name);
 	$smarty->assign("authUserID", $auth->userID);
+	$smarty->assign("authBar", $PATH['physical']['templates'] . '/_components/authbar.tpl');
 
 	// Load page
 	switch($page) {

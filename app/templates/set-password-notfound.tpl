@@ -27,7 +27,7 @@
   <div role="main">
     <div id="site">
       <div id="content">
-        {include file="_components/authbar.tpl"}
+        {include file=$authBar}
         <h1 class="maintitle">Sorry, incorrect access key.</h1>
         <p>Could not set new password at this time. Please contact jwatson@curse.com to request new access key.</p>
        </div>
