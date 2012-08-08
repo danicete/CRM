@@ -69,7 +69,7 @@
                 <div class="req-list">
                   {foreach from=$listingInfo item=request name=listingLoop}
                   {if $smarty.foreach.listingLoop.index%10 == 0}
-                  <div class="req-list-page">
+                  <div class="req-list-page {if $smarty.foreach.listingLoop.index == 0}currPage{/if}">
                   {/if}
                     <div class="req-list-item">
                       <div class="req-list-id">
@@ -77,7 +77,7 @@
                       </div>
                       <div class="req-list-campaign">{$request.campaignName|truncate:24:"..."}</div>
                       <div class="req-list-salesRep">{$request.curseSalesRep|truncate:24:"..."}</div>
-                      <div class="req-status-wrapper"><div class="req-list-status {$request.status}">{$request.pageStatus}</div></div>
+                      <div class="req-status-wrapper"><div class="req-list-status status-{$request.status}">{$request.pageStatus}</div></div>
                       <div class="req-list-options">
                         <a href="{$path.siteRoot}/edit/?rpin={$request.pin}">Edit</a>
                       </div>
@@ -118,6 +118,9 @@
   <!-- scripts concatenated and minified via build script -->
   <script src="{$path.siteRoot}/js/plugins.js"></script>
   <script src="{$path.siteRoot}/js/script.js"></script>
+  {if $showList}
+  <script src="{$path.siteRoot}/js/lookup.js"></script>
+  {/if}
   <!-- end scripts -->
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.

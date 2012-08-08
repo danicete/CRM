@@ -2,4 +2,4 @@
 
 	$smarty->assign("test", "Test Message!");
 
-	$smarty->display($PATH['physical']['templates'] . '\index.tpl');
+	$smarty->display($PATH['physical']['templates'] . '/index.tpl');

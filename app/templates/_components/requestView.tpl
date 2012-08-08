@@ -1,8 +1,8 @@
 <div class="view-page-content">
 	<div style="text-align: center;">Request PIN: #{$requestPIN}</div>
 	<div class="form-view-container">
-		<h3>Campaign Info</h3>
-		<div id="form-view-campaign" class="clearfix">
+		<div id="form-view-campaign">
+			<h3>Campaign Info</h3>
 			<div class="form-view-label">Campaign Name</div>
 			<div class="form-view-info">{$requestRow.campaignName}</div>
 			<div class="form-view-label">Advertiser</div>
@@ -14,6 +14,11 @@
 			<div class="form-view-label">Launch Date</div>
 			<div class="form-view-info">{$requestRow.launchDate|date_format:"%D"}</div>
 		</div>
+		<div id="form-view-status">
+			<p>This request's current status: </p>
+			 <div class="form-view-status status-{$requestRow.status}">{$requestRow.status}</div>
+		</div>
+		<div class="clearfix"></div>
 		<div id="form-view-summary">
 			<h4>Summary of Request</h4>
 			<p>{$requestRow.summary}</p>
