@@ -2,7 +2,7 @@
 
 	/* ---===|| Site Mode ||===--- */
 
-	//define("SITE_MODE", "development");
+	define("SITE_MODE", "development");
 	//define("SITE_MODE", "production");
 
 
@@ -13,10 +13,17 @@
 	define("DB_PASS", "");
 	define("DB_NAME", "creative");
 
+	// define("DB_HOST", "http://www.cursesf.local/crm");
+	// define("DB_USER", "root");
+	// define("DB_PASS", "curse35124");
+	// define("DB_NAME", "creative");
+
 	// define("DB_HOST", "jameswatsonv.com");
 	// define("DB_USER", "jlwatson_admin");
 	// define("DB_PASS", "sgb4trjb");
 	// define("DB_NAME", "jlwatson_creative");
+
+	
 	
 
 	/* ---===|| Path Info ||===--- */
@@ -24,6 +31,7 @@
 	//$PATH['http']['host']				= "http://localhost";
 	$PATH['http']['host']				= "http://localhost:81";
 	//$PATH['http']['host']				= "http://jameswatsonv.com";
+	//$PATH['http']['host']				= "http://www.cursesf.local";
 	
 	$PATH['http']['siteRoot'] 			= $PATH['http']['host'] . "/creative";
 	$PATH['http']['assets'] 			= $PATH['http']['siteRoot'] . "/assets";
