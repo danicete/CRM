@@ -98,6 +98,7 @@
 			$smarty->assign("reqRow", $reqRow);
 		}
 		$smarty->assign("rpin", $pin);
+		$smarty->assign("removeFollower", $PATH['physical']['templates'] . '/edit/followers/removeFollower.tpl');
 		$smarty->display($PATH['physical']['templates'] . '/edit/followers.tpl');
 	} else {
 		header('Location: ' . $PATH['http']['siteRoot']);

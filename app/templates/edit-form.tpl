@@ -52,7 +52,7 @@
 		<section id="edit-form-units" class="edit-form-section">
 			<h2 class="edit-section-title">Requested Units</h2>
 			{foreach from=$unitsInfo item=unit name=unitsLoop}
-				{include file="_blocks/unitDOMblock.tpl"}
+				{include file=$unitDOMblock}
 			{/foreach}
 				<div class="edit-request-container">
 					<div class="addRequestContent">Request Another Unit</div>
@@ -67,8 +67,8 @@
 			Save Changes
 		</div>
 	</div>
-	{include file="_components/addRequestDialog.tpl"}
-	{include file="_components/removeUnitDialog.tpl"}
+	{include file=$addRequestDialog}
+	{include file=$removeUnitDialog}
 	<input type="hidden" id="formSavePostURL" value="{$path.siteRoot}/edit/" />
 	<input type="hidden" id="editAjaxURL" value="{$path.siteRoot}/edit.ajax/" />
 	<input type="hidden" id="formID" value="{$requestData.id}" />

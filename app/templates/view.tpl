@@ -32,7 +32,7 @@
         <h1 class="maintitle">Viewing Request #{"%05d"|sprintf:$requestRow.id}</h1>
 	        <div class="full-page-container clearfix">
 	        	{if $requestFound == 1}
-		        	{include file="_components/requestView.tpl"}
+		        	{include file=$requestView}
 		        {else}
 		        	<h3>Oops!</h3>
 		        	<div>We couldn't find a request with the PIN you entered. Are you sure you entered

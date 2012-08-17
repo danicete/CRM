@@ -34,6 +34,8 @@
 	//$PATH['http']['host']				= "http://www.cursesf.local";
 	
 	$PATH['http']['siteRoot'] 			= $PATH['http']['host'] . "/creative";
+	//$PATH['http']['siteRoot'] 			= $PATH['http']['host'] . "/CRM";
+
 	$PATH['http']['assets'] 			= $PATH['http']['siteRoot'] . "/assets";
 
 	$PATH['physical']['siteRoot'] 		= dirname(dirname(dirname(__FILE__)));

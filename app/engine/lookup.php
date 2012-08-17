@@ -55,10 +55,11 @@
 		}
 		$smarty->assign("showList", $showList);
 
-		$recentRequestsBlock = $smarty->fetch("_blocks/loggedIn-recentRequestsBlock.tpl");
+		$recentRequestsBlock = $smarty->fetch($PATH['physical']['templates'] . "/_blocks/loggedIn-recentRequestsBlock.tpl");
 	} else {
-		$recentRequestsBlock = $smarty->fetch("_blocks/loggedOut-recentRequestsBlock.tpl");
+		$recentRequestsBlock = $smarty->fetch($PATH['physical']['templates'] . "/_blocks/loggedOut-recentRequestsBlock.tpl");
 	}
 
+	$smarty->assign("unfollowDialog", $PATH['physical']['templates'] . '/edit/followers/unfollowDialog.tpl');
 	$smarty->assign("recentRequestsBlock", $recentRequestsBlock);
-	$smarty->display($PATH['physical']['templates'] . '\lookup.tpl');
+	$smarty->display($PATH['physical']['templates'] . '/lookup.tpl');

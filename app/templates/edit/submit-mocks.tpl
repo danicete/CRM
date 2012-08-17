@@ -85,7 +85,7 @@
           </div>    
         </div>
         <div id="removeMockDialog" style="display:none;">
-          {include file="edit/removeMockDialog.tpl"}
+          {include file=$removeMockDialog}
         </div>
       </div>
     </div>

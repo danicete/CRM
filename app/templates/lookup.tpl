@@ -99,7 +99,7 @@
           {/if}
         </div>
         <div id="unfollowDialog" style="display:none;">
-          {include file="edit/followers/unfollowDialog.tpl"}
+          {include file=$unfollowDialog}
         </div>
        </div> 
     </div> 

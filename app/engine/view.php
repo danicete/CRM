@@ -108,5 +108,5 @@
 	}
 
 	$smarty->assign('requestFound', $requestFound);
-
+	$smarty->assign('requestView', $PATH['physical']['templates'] . '/_components/requestView.tpl');
 	$smarty->display($PATH['physical']['templates'] . '\view.tpl');

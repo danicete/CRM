@@ -70,13 +70,13 @@ class UploadHandler
 
     protected function getFullUrl() {
         $https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
-      	return
-    		($https ? 'https://' : 'http://').
-    		(!empty($_SERVER['REMOTE_USER']) ? $_SERVER['REMOTE_USER'].'@' : '').
-    		(isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : ($_SERVER['SERVER_NAME'].
-    		($https && $_SERVER['SERVER_PORT'] === 443 ||
-    		$_SERVER['SERVER_PORT'] === 80 ? '' : ':'.$_SERVER['SERVER_PORT']))).
-    		substr($_SERVER['SCRIPT_NAME'],0, strrpos($_SERVER['SCRIPT_NAME'], '/'));
+        return
+            ($https ? 'https://' : 'http://').
+            (!empty($_SERVER['REMOTE_USER']) ? $_SERVER['REMOTE_USER'].'@' : '').
+            (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : ($_SERVER['SERVER_NAME'].
+            ($https && $_SERVER['SERVER_PORT'] === 443 ||
+            $_SERVER['SERVER_PORT'] === 80 ? '' : ':'.$_SERVER['SERVER_PORT']))).
+            substr($_SERVER['SCRIPT_NAME'],0, strrpos($_SERVER['SCRIPT_NAME'], '/'));
     }
 
     protected function set_file_delete_url($file) {
@@ -265,32 +265,32 @@ class UploadHandler
     }
 
     protected function orient_image($file_path) {
-      	$exif = @exif_read_data($file_path);
+        $exif = @exif_read_data($file_path);
         if ($exif === false) {
             return false;
         }
-      	$orientation = intval(@$exif['Orientation']);
-      	if (!in_array($orientation, array(3, 6, 8))) {
-      	    return false;
-      	}
-      	$image = @imagecreatefromjpeg($file_path);
-      	switch ($orientation) {
-        	  case 3:
-          	    $image = @imagerotate($image, 180, 0);
-          	    break;
-        	  case 6:
-          	    $image = @imagerotate($image, 270, 0);
-          	    break;
-        	  case 8:
-          	    $image = @imagerotate($image, 90, 0);
-          	    break;
-          	default:
-          	    return false;
-      	}
-      	$success = imagejpeg($image, $file_path);
-      	// Free up memory (imagedestroy does not delete files):
-      	@imagedestroy($image);
-      	return $success;
+        $orientation = intval(@$exif['Orientation']);
+        if (!in_array($orientation, array(3, 6, 8))) {
+            return false;
+        }
+        $image = @imagecreatefromjpeg($file_path);
+        switch ($orientation) {
+              case 3:
+                $image = @imagerotate($image, 180, 0);
+                break;
+              case 6:
+                $image = @imagerotate($image, 270, 0);
+                break;
+              case 8:
+                $image = @imagerotate($image, 90, 0);
+                break;
+            default:
+                return false;
+        }
+        $success = imagejpeg($image, $file_path);
+        // Free up memory (imagedestroy does not delete files):
+        @imagedestroy($image);
+        return $success;
     }
 
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null) {
@@ -312,8 +312,12 @@ class UploadHandler
                         fopen($uploaded_file, 'r'),
                         FILE_APPEND
                     );
+                    chmod($file_path, 0777);
+                    chown($file_path, "SF-WEB01\\IIS_IUSRS");
                 } else {
                     move_uploaded_file($uploaded_file, $file_path);
+                    chmod($file_path, 0777);
+                    chown($file_path, "SF-WEB01\\IIS_IUSRS");
                 }
             } else {
                 // Non-multipart uploads (PUT method support)
@@ -322,12 +326,14 @@ class UploadHandler
                     fopen('php://input', 'r'),
                     $append_file ? FILE_APPEND : 0
                 );
+                chmod($file_path, 0777);
+                chown($file_path, "SF-WEB01\\IIS_IUSRS");
             }
             $file_size = filesize($file_path);
             if ($file_size === $file->size) {
-            	if ($this->options['orient_image']) {
-            		$this->orient_image($file_path);
-            	}
+                if ($this->options['orient_image']) {
+                    $this->orient_image($file_path);
+                }
                 $file->url = $this->options['upload_url'].rawurlencode($file->name);
                 foreach($this->options['image_versions'] as $version => $options) {
                     if ($this->create_scaled_image($file->name, $options)) {

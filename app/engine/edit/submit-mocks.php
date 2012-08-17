@@ -68,5 +68,5 @@
 		$smarty->assign("highlightID", isset($_GET['highlight']) ? intval($_GET['highlight']) : 0);
 	}
 
-
+	$smarty->assign("removeMockDialog", $PATH['physical']['templates'] . '/edit/removeMockDialog.tpl');
 	$smarty->display($PATH['physical']['templates'] . '/edit/submit-mocks.tpl');

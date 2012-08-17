@@ -10,8 +10,8 @@
 	}
 
 	// load up subdirectory
-	if (isset($parts[4]) && $parts[4] != '') {
-		include($PATH['physical']['app'] . '/engine/edit/' . $parts[4] . '.php');
+	if (isset($parts[3]) && $parts[3] != '') {
+		include($PATH['physical']['app'] . '/engine/edit/' . $parts[3] . '.php');
 		exit();
 	}
 
@@ -155,16 +155,22 @@
 				
 				$smarty->assign("unitsInfo", $unitsInfo);
 
-				$editPageContent = $smarty->fetch($PATH['physical']['templates'] . '\edit-form.tpl');
+				$smarty->assign("addRequestDialog", $PATH['physical']['templates'] . '/_components/addRequestDialog.tpl');
+				$smarty->assign("removeUnitDialog", $PATH['physical']['templates'] . '/_components/removeUnitDialog.tpl');
+				$smarty->assign("unitDOMblock", $PATH['physical']['templates'] . '/_blocks/unitDOMblock.tpl');
+				$editPageContent = $smarty->fetch($PATH['physical']['templates'] . '/edit-form.tpl');
 				
 			} else 
-				$editPageContent = $smarty->fetch($PATH['physical']['templates'] . '\edit-notfollower.tpl');
+				$editPageContent = $smarty->fetch($PATH['physical']['templates'] . '/edit-notfollower.tpl');
 
 		} else
-			$editPageContent = $smarty->fetch($PATH['physical']['templates'] . '\edit-notfound.tpl');
+			$editPageContent = $smarty->fetch($PATH['physical']['templates'] . '/edit-notfound.tpl');
+
 
 		$smarty->assign("editPageContent", $editPageContent);
-		$smarty->display($PATH['physical']['templates'] . '\edit.tpl');
+		
+
+		$smarty->display($PATH['physical']['templates'] . '/edit.tpl');
 		exit();
 	}
 
@@ -189,7 +195,7 @@
 								'option4'	=> in_array(4, (isset($unit['unitOptions']) ? $unit['unitOptions'] : array())) ? 1 : 0,
 								'option5'	=> in_array(5, (isset($unit['unitOptions']) ? $unit['unitOptions'] : array())) ? 1 : 0,
 								'details'	=> (isset($unit['details']) && $unit['details'] != "") ? $unit['details'] : "",
-								'format'	=> 'jpg'
+								'format'	=> 'jpg/png'
 							);
 							$db->update('unit_requests', $unitData, 'id = ' . $unit['unitID']);
 

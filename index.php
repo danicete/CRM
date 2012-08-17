@@ -1,5 +1,7 @@
 <?php
 
+	error_reporting(E_ALL);
+
 	// Includes
 	include('app/config/config.inc.php');
 
@@ -32,13 +34,18 @@
 	$smarty->setCacheDir('../app/lib/smarty/cache');
 	$smarty->setConfigDir('../app/lib/smarty/config');
 
+	if (!isset($_SERVER['REQUEST_URI'])) {
+       $_SERVER['REQUEST_URI'] = substr($_SERVER['PHP_SELF'],1 );
+       if (isset($_SERVER['QUERY_STRING'])) { $_SERVER['REQUEST_URI'].='?'.$_SERVER['QUERY_STRING']; }
+	}
+
 	// Break up URL
 	$tmp = explode('?', $_SERVER['REQUEST_URI']);
 	$request = $tmp[0];
 	$queryParams = isset($tmp[1]) ? $tmp[1] : null;
 	$parts = explode('/', $request);
 
-	$page = isset($parts[3]) && $parts[3] != '' ? $parts[3] : "index";
+	$page = isset($parts[2]) && $parts[2] != '' ? $parts[2] : "index";
 
 	$smarty->assign("request_uri", $request);
 	$smarty->assign("queryParams", $queryParams);
