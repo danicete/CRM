@@ -1,5 +1,7 @@
 <?php
 
+	$jsIncludes[] = "lookup";
+
 	if(isset($_GET)) {
 
 		if(isset($_GET['rpin'])) {
@@ -62,4 +64,5 @@
 
 	$smarty->assign("unfollowDialog", $PATH['physical']['templates'] . '/edit/followers/unfollowDialog.tpl');
 	$smarty->assign("recentRequestsBlock", $recentRequestsBlock);
+	$smarty->assign("jsIncludes", $jsIncludes);
 	$smarty->display($PATH['physical']['templates'] . '/lookup.tpl');

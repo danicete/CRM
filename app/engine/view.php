@@ -37,6 +37,7 @@
 									$newUnit['id'] = $reqRow['id'];
 									$newUnit['name'] = $typeRow['name'];
 									$newUnit['optionCount'] = $typeRow['options_count'];
+									$newUnit['timeline'] = array();
 									for($i = 1; $i <= (int)$typeRow['options_count']; $i++) {
 										$newUnit['timeline'][($i-1)] = substr($typeRow['timeline'.$i], 0, -1);
 									}

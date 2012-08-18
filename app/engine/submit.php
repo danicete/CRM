@@ -26,6 +26,7 @@
 							$format = (isset($unit['format']) && $unit['format'] != "") ? $unit['format'] : "";
 
 							$data = array(
+								'request_id'	=> 0,
 								'unit_type'		=> $type,
 								'option1'		=> $option1,
 								'option2'		=> $option2,
@@ -102,7 +103,7 @@
 				$db->insert('user_request_link', $linkData);
 
 				$followers = $formData['followers'];
-				$followerEmails;
+				$followerEmails = "";
 				if(is_array($followers) && !empty($followers)) {
 					foreach($followers as $f) {
 						$linkData = array(

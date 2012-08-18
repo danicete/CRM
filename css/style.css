@@ -218,24 +218,31 @@ td { vertical-align: top; }
    Author: James Watson
    ========================================================================== */
 
+html { overflow-x: hidden; }
 #site { width: 880px; margin: 0px auto; }
-body { background: url('../img/assets/bg-texture.png') 0 0 repeat; }
+body { background: url('../img/assets/light_toast.png') 0 0 repeat; font-family: 'latoregular'; }
 
 #content { 
-  background: #F4F4F4;
-  -webkit-box-shadow: 0px 5px 2px #000;
-  box-shadow: 0px 5px 2px #000;
+  background: #FFF;
   -moz-border-radius: 0px 0px 7px 7px;
   -webkit-border-radius: 0px 0px 7px 7px;
   border-radius: 0px 0px 7px 7px;
   padding-bottom: 30px;
   position: relative;
+  -webkit-box-shadow: 0px 5px 10px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow:    0px 5px 10px rgba(50, 50, 50, 0.3);
+  box-shadow:         0px 5px 10px rgba(50, 50, 50, 0.3);
 }
 
 .half-page-container { width: 500px; margin: 0 auto; }
 .full-page-container { width: 800px; margin: 0 auto; }
 
-.maintitle { margin: 0; text-align: center; }
+.maintitle { 
+  margin: 0; 
+  text-align: center;
+  font-family: 'lato_blackregular';
+  text-transform: uppercase;
+}
 
 .optionContainer { 
   -webkit-border-radius: 4px;
@@ -299,15 +306,56 @@ body { background: url('../img/assets/bg-texture.png') 0 0 repeat; }
   text-shadow: 0px 1px 0px rgba(100,100,100,0.3);
   padding: 0 25px 0 0;
 }
+.authbar, .authbar:before, .authbar:after {
+  background: #545454;
+  background: -moz-linear-gradient(top,  #545454 0%, #3c3c3c 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#545454), color-stop(100%,#3c3c3c));
+  background: -webkit-linear-gradient(top,  #545454 0%,#3c3c3c 100%);
+  background: -o-linear-gradient(top,  #545454 0%,#3c3c3c 100%);
+  background: -ms-linear-gradient(top,  #545454 0%,#3c3c3c 100%);
+  background: linear-gradient(to bottom,  #545454 0%,#3c3c3c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545454', endColorstr='#3c3c3c',GradientType=0 );
+  -webkit-box-shadow: 0px 2px 3px rgba(50, 50, 50, 0.33);
+  -moz-box-shadow:    0px 2px 3px rgba(50, 50, 50, 0.33);
+  box-shadow:         0px 2px 3px rgba(50, 50, 50, 0.33);
+  border-bottom: 1px solid black;
+}
 .authbar {
+  font-family: 'latoregular';
+  color: #dadada;
+  text-shadow: 1px 1px 1px black, 0 0 0 black, 1px 1px 1px black;
   position: relative;
   text-align: right;
   clear: both;
-  overflow: hidden;
+  font-size: 1.1em;
+  margin-bottom: 12px;
+}
+.authbar:before, .authbar:after {
+  height: 35px;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 9999px;
+}
+.authbar:before {
+  right: 100%;
+}
+.authbar:after {
+  left: 100%;
+}
+.authbar .authpipe {
+  display: inline-block;
+  margin: 0 2px 0 8px;
+}
+.authbar .username {
+  color: #C46A18;
 }
 .authbar p { margin: 0; padding: 5px; float: right; }
-.authbar a { float: right; padding: 5px; }
-.authbar p span { color: #C46A18; }
+.authbar a { float: right; padding: 5px; color: #dadada; text-decoration: none; } 
+.authbar a:hover { 
+  color: rgba(250,250,250,0.5);
+}
 #authHomeBtn { float: left; margin-left: 15px; }
 #content .login-container {
   position: absolute;

@@ -56,6 +56,12 @@
 	$smarty->assign("authName", $auth->name);
 	$smarty->assign("authUserID", $auth->userID);
 	$smarty->assign("authBar", $PATH['physical']['templates'] . '/_components/authbar.tpl');
+	$smarty->assign("header", $PATH['physical']['templates'] . '/_components/header.tpl');
+	$smarty->assign("footer", $PATH['physical']['templates'] . '/_components/footer.tpl');
+
+	// this array is for dynamically including other javascript files
+	$jsIncludes = array();
+	$smarty->assign("jsIncludes", $jsIncludes);
 
 	// Load page
 	switch($page) {

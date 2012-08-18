@@ -58,6 +58,7 @@
 						{/if}
 					</div>
 					<h3>{$unit.name}</h3>
+					{if $unit.timeline|@count > 0}
 					{foreach name=optionsLoop from=$unit.timeline item=option}
 					{if $unit.options[$smarty.foreach.optionsLoop.index] == 1}
 					<div class="form-view-unit-option {if $unit.options[$smarty.foreach.optionsLoop.index] == 1}selectedOption{/if}">
@@ -65,6 +66,7 @@
 					</div>
 					{/if}
 					{/foreach}
+					{/if}
 					<h4 class="unit-subtitle">Unit Details</h4>
 					<div class="form-view-unit-details">
 						{if $unit.details}

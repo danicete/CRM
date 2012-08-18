@@ -57,7 +57,7 @@
 	        </div>
           <div id="addFollowerDialog"></div>
           <div id="removeFollowerDialog" style="display:none;">
-            {include file="edit/followers/removeFollower.tpl"}
+            {include file=$removeFollower}
           </div>
           <input type="hidden" id="followersURL" value="{$path.siteRoot}/edit/followers" />
           <input type="hidden" id="requestPIN" value="{$rpin}" />
