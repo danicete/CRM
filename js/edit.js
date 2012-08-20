@@ -13,7 +13,14 @@ $(document).ready(function() {
 	$('.edit-date .edit-form-field-input').datepicker({
 		dateFormat: "mm/dd/yy"
 	});
-	$('.edit-form-textarea').cleditor({width: 398});
+	$('.edit-form-textarea').cleditor({
+		width: 758,
+		controls:     // controls to add to the toolbar
+	                    "bold italic underline strikethrough subscript superscript | font size " +
+	                    "style | color highlight removeformat | bullets numbering | outdent " +
+	                    "indent | alignleft center alignright justify | undo redo | " +
+	                    "rule image link unlink | cut copy paste pastetext"
+	});
 	$('.cleditorMain').hide();
 
 	$('.edit-text .edit-form-field-value').on('click', function(e) {
@@ -65,8 +72,8 @@ $(document).ready(function() {
 					var o = $(data.output);
 					o.css({
 						position: 'absolute',
-						top: '0',
-						left: (w+55)+'px'
+						top: '30px',
+						left: '0px'
 					});
 					theParent.append(o);
 					initializeSalesRepPopup();
@@ -127,16 +134,6 @@ $(document).ready(function() {
 	});
 	$("#resetform").on('click', function() {
 		window.location = window.location;
-	});
-
-	$.each($("#edit-form-campaign .edit-form-field-value"), function(index,value) {
-		var currWidth = parseInt($(value).css('width'));
-		var parentWidth = parseInt($(value).parent().parent().css('width'));
-
-		var labelWidth = parseInt($(value).parent().siblings('.edit-form-label').css('width')) + 20;
-
-		$(value).css('width', (parentWidth - labelWidth) + 'px');
-		console.log('bingo');
 	});
 
 	// Mocks
@@ -217,6 +214,15 @@ $(document).ready(function() {
 		$("#addFilesInput").css('top', '9999px');
 		$('#fileupload').fileupload('disable');
 	}
+
+	$.each($("#edit-form-campaign .edit-form-field-value"), function(index,value) {
+		var currWidth = parseInt($(value).css('width'));
+		var parentWidth = parseInt($(value).parent().parent().css('width'));
+
+		var labelWidth = parseInt($(value).parent().siblings('.edit-form-label').css('width')) + 8;
+
+		$(value).css('width', (parentWidth - labelWidth) + 'px');
+	});
 
 });
 

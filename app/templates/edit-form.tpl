@@ -41,7 +41,6 @@
 				<div class="edit-value-display" id="summary">{$requestData.summary}</div>
 				<textarea id="test" class="edit-form-textarea" style="display: none;">{$requestData.summary}</textarea>
 				<input type="hidden" class="edit-original-value" value="{$requestData.summary}" />
-				<span class="edit-tooltip">Click to Edit</span>
 			</div>
 		</section><!-- #edit-form-summary -->
 		<section id="edit-form-ftp" class="edit-form-section">
@@ -50,7 +49,6 @@
 				<div class="edit-value-display" id="ftpinfo">{$requestData.ftpinfo}</div>
 				<textarea class="edit-form-textarea" style="display: none;">{$requestData.ftpinfo}</textarea>
 				<input type="hidden" class="edit-original-value" value="{$requestData.ftpinfo}" />
-				<span class="edit-tooltip">Click to Edit</span>
 			</div>	
 		</section><!-- #edit-form-ftp -->
 		<div class="clearfix"></div>

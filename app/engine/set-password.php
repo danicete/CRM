@@ -1,5 +1,8 @@
 <?php
 
+	$jsIncludes[] = "set-password";
+	$smarty->assign('jsIncludes', $jsIncludes);
+
 	if (isset($_POST['setpassword']) && !empty($_POST['setpassword'])) {
 
 		$userID 		= intval($_POST['userID']);
@@ -40,8 +43,6 @@
 			}
 		} else
 			$smarty->display($PATH['physical']['templates'] . '/set-password-notfound.tpl');
-		
-
 		
 	}
 	

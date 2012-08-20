@@ -69,7 +69,8 @@
 						<h5>Unit Mocks</h5>
 						{foreach from=$unit.mocks item=mock name=mocksLoop}
 							<a href="{$mock.imgPath}">
-								{$mock.pageName}
+								<img class="mock-view-thumb" src="{$mock.thumbPath}" />
+
 							</a>
 						{/foreach}
 						{if $unit.mocks|@count == 0}

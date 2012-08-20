@@ -663,7 +663,6 @@ border-bottom-left-radius: 6px;
 
 
 .form-view-unit {
-  min-height: 200px;
   position: relative;
   background: #ebebeb;
   -webkit-box-shadow: 1px 5px 5px rgba(50, 50, 50, 0.16);
@@ -689,14 +688,26 @@ border-bottom-left-radius: 6px;
   height: 100px;
   width: 100px;
 }
+/*.form-view-unit:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: black;
+}*/
 .form-view-unit h3 { margin: 5px 0; font-size: 85%; text-transform: uppercase; }
-.form-view-unit-mocks { float: right; min-height: 190px; }
+.form-view-unit-mocks { float: right; min-height: 170px; }
 .form-view-unit-mocks h5 { margin: 5px 30px 5px 0; font-size: 75%; }
 .form-view-unit-mocks a { display: block; font-size: 12px; }
 
+.form-view-unit-mocks .mock-view-thumb {
+  max-width: 105px;
+}
 .form-view-unit-details {
+  min-height: 80px;
   font-size: 75%;
-  line-height: 200%;
+  line-height: 175%;
 }
 
 .unit-subtitle { 
@@ -749,7 +760,7 @@ form.login-form {
 .edit-form-container * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 .edit-form-label { text-align: right; font-weight: bold; float: left; font-size: 87.5%; line-height: 200%; }
 .edit-form-field { float: right; }
-.edit-form-field-value { display: inline-block; border: 1px solid transparent; cursor: text; position: relative; }
+.edit-form-field-value { display: inline-block; border: 1px solid transparent; cursor: text; position: relative; overflow: hidden; }
 
 .edit-form-field-value:hover { 
   -webkit-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.25);
@@ -768,21 +779,37 @@ line-height: 25px;
 -moz-border-radius: 3px;
 border-radius: 3px;
    }
-.editting { border: 1px solid rgba(0,100,0,0.6); }
+.editting { /*border: 1px solid rgba(0,100,0,0.6);*/ }
 .changed { border: 1px solid rgba(192, 192, 0, 0.66); }
 .edit-row { margin-bottom: 3px; }
-.edit-form-field-input { margin: 6px 40px; }
+.edit-form-field-input { 
+  height: 28px; 
+  width: 100%;
+  background: #EBEBEB;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: right;
+  border: none;
+  -webkit-box-shadow: inset 2px 2px 5px 1px rgba(50, 50, 50, 0.2);
+  box-shadow: inset 2px 2px 5px 1px rgba(50, 50, 50, 0.2);
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+  padding: 0 5px;
+  font-family: 'latoregular';
+}
 .timeline-label { font-size: 14px; }
 
-#edit-form-timeline,
-#edit-form-summary { 
-  width: 50%;
-  float: left;
-}
 #edit-form-campaign-info {
   width: 50%;
   padding-left: 40px;
   float: left;
+}
+#edit-form-summary,
+#edit-form-ftp {
+  padding: 20px 0px 0 40px;
+  min-height: 145px;
 }
 #edit-form-timeline-info {
   width: 45%;
@@ -797,11 +824,17 @@ border-radius: 3px;
 #edit-form-timeline .edit-form-label { line-height: 38px; }
 
 .edit-form-summary-container { border: 1px solid transparent; 
-  cursor: pointer; 
+  cursor: text; 
   display: block;
   overflow: hidden;
+
 }
-.edit-form-summary-container:hover { border: 1px solid black; }
+.edit-form-summary-container:hover { 
+  border: 1px solid #dedede;
+  -webkit-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow:    0px 1px 3px rgba(50, 50, 50, 0.25);
+  box-shadow:         0px 1px 3px rgba(50, 50, 50, 0.25);
+}
 .edit-form-summary-container > div { padding: 10px; }
 .edit-form-summary-container .edit-form-textarea { width: 100%; height: 100%; }
 
@@ -850,7 +883,7 @@ border-radius: 3px;
 }
 
 #salesRepPopup { 
-  width: 160px; 
+  width: 175px; 
   border: 1px solid #D0D0D0; 
   background: #F9F9F9;
   z-index: 1000;

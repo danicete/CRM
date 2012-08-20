@@ -23,7 +23,7 @@
 						$query = "SELECT * FROM users WHERE id = " . $requestRow['curseSalesRep'];
 						$userRow = $db->fetchRow($query);
 
-						if(count($unitIDs)>1) {
+						if(count($unitIDs)>0) {
 							foreach($unitIDs as $unit) {
 								$query = "SELECT * FROM unit_requests WHERE id = $unit";
 								$result = $db->fetchAll($query);
@@ -107,7 +107,7 @@
 		}
 
 	}
-
+	
 	if($requestFound)
 		$requestContent = $smarty->fetch($PATH['physical']['templates'] . '/_components/requestView.tpl');
 	else
