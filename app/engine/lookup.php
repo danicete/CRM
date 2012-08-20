@@ -59,6 +59,7 @@
 
 		$recentRequestsBlock = $smarty->fetch($PATH['physical']['templates'] . "/_blocks/loggedIn-recentRequestsBlock.tpl");
 	} else {
+		$smarty->assign("showList", 0);
 		$recentRequestsBlock = $smarty->fetch($PATH['physical']['templates'] . "/_blocks/loggedOut-recentRequestsBlock.tpl");
 	}
 

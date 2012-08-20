@@ -1,5 +1,11 @@
 <?php
 
+	$jsIncludes[] = "libs/jqueryFileUpload/vendor/jquery.ui.widget";
+	$jsIncludes[] = "libs/jqueryFileUpload/jquery.iframe-transport";
+	$jsIncludes[] = "libs/jqueryFileUpload/jquery.fileupload";
+	$jsIncludes[] = "libs/jqueryFileUpload/jquery.fileupload-ui";
+	$jsIncludes[] = "libs/jqueryFileUpload/jquery.fileupload-fp";
+
 	$pin = $_GET['rpin'];
 	$pin = mb_convert_encoding($pin, 'UTF-8', 'UTF-8');
 	$pin = htmlentities($pin, ENT_QUOTES, 'UTF-8');
@@ -68,5 +74,6 @@
 		$smarty->assign("highlightID", isset($_GET['highlight']) ? intval($_GET['highlight']) : 0);
 	}
 
+	$smarty->assign("jsIncludes", $jsIncludes);
 	$smarty->assign("removeMockDialog", $PATH['physical']['templates'] . '/edit/removeMockDialog.tpl');
 	$smarty->display($PATH['physical']['templates'] . '/edit/submit-mocks.tpl');

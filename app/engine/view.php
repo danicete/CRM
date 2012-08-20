@@ -108,6 +108,10 @@
 
 	}
 
-	$smarty->assign('requestFound', $requestFound);
-	$smarty->assign('requestView', $PATH['physical']['templates'] . '/_components/requestView.tpl');
+	if($requestFound)
+		$requestContent = $smarty->fetch($PATH['physical']['templates'] . '/_components/requestView.tpl');
+	else
+		$requestContent = $smarty->fetch($PATH['physical']['templates'] . '/_components/requestNotFound.tpl');
+
+	$smarty->assign('requestContent', $requestContent);
 	$smarty->display($PATH['physical']['templates'] . '\view.tpl');

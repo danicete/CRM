@@ -1,5 +1,7 @@
 <?php
 
+	$jsIncludes[] = "edit";
+
 	// Edit page and all subpages require authentication
 	if(!$auth->checkAuth($db)) {
 		$queryString;
@@ -169,7 +171,7 @@
 
 		$smarty->assign("editPageContent", $editPageContent);
 		
-
+		$smarty->assign('jsIncludes', $jsIncludes);
 		$smarty->display($PATH['physical']['templates'] . '/edit.tpl');
 		exit();
 	}

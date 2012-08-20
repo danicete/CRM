@@ -15,6 +15,10 @@
 
   <link rel="stylesheet" href="{$path.siteRoot}/css/fonts/fonts.css">
   <link rel="stylesheet" href="{$path.siteRoot}/css/style.css">
+  <link rel="stylesheet" href="{$path.siteRoot}/css/jquery-ui-1.8.21.custom.css">
+  <link rel="stylesheet" href="{$path.siteRoot}/css/jquery.fileupload-ui.css">
+  <link rel="stylesheet" href="{$path.siteRoot}/css/colorbox.css">
+  <link rel="stylesheet" href="{$path.siteRoot}/css/jquery.cleditor.css">
 
   <script src="{$path.siteRoot}/js/libs/modernizr-2.5.3.min.js"></script>
 </head>

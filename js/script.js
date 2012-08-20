@@ -15,9 +15,11 @@ $(document).ready(function() {
 			if(data.status == "success") {
 				var cont = $(document.createElement('div')).addClass('login-container');
 
+				$("#authLogin").addClass('loginopen');
+
 				cont.append(data.output).hide();
 				$("#content").append(cont);
-				cont.fadeIn(400, initializeLoginForm);
+				cont.fadeIn(200, initializeLoginForm);
 
 				$("html").on("click", function(e) {
 					if($(e.target).hasClass("j-loginFormFlag")) {
@@ -204,6 +206,7 @@ function removeLoginForm() {
 		$(this).remove();		
 	});
 	$("html").off("click");
+	$("#authLogin").removeClass('loginopen');
 }
 
 function initializeLoginForm() {
@@ -218,8 +221,14 @@ function initializeLoginForm() {
 
 		$.post(url, {email: email, pass: pass}, function(data) {
 
-			if(data.status ==  "failed")
-				$("#submitBtn").parent().prepend($(document.createElement('span')).addClass('loginErr').html('Login failed.'));
+			if(data.status ==  "failed") {
+				var slug = Math.random*1000;
+				$("#submitBtn").parent().append($(document.createElement('span')).addClass('loginErr').attr('id',slug).html('Login failed.'));
+				$("#"+slug).delay(4500).fadeOut(400, function() {
+						$(this).remove();
+				});
+				
+			}
 			else {
 				//alert("Login successful. Reloading.");
 				window.location = window.location;

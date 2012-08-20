@@ -1,5 +1,7 @@
 <?php
 
+	$jsIncludes[] = "form";
+
 	if(!$auth->checkAuth($db)) {
 		header("Location: " . $PATH['http']['siteRoot'] . '/login/?f=/new/');
 		exit();
@@ -21,5 +23,7 @@
 	$smarty->assign("formPage4", $smarty->fetch($PATH['physical']['templates'] . '/_formPages/page4.tpl'));
 	$smarty->assign("formFinishedPage", $smarty->fetch($PATH['physical']['templates'] . '/_formPages/finishedPage.tpl'));
 	$smarty->assign("formCompletePage", $smarty->fetch($PATH['physical']['templates'] . '/_formPages/completePage.tpl'));
+
+	$smarty->assign('jsIncludes', $jsIncludes);
 
 	$smarty->display($PATH['physical']['templates'] . '\new.tpl');

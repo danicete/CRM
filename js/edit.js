@@ -129,6 +129,16 @@ $(document).ready(function() {
 		window.location = window.location;
 	});
 
+	$.each($("#edit-form-campaign .edit-form-field-value"), function(index,value) {
+		var currWidth = parseInt($(value).css('width'));
+		var parentWidth = parseInt($(value).parent().parent().css('width'));
+
+		var labelWidth = parseInt($(value).parent().siblings('.edit-form-label').css('width')) + 20;
+
+		$(value).css('width', (parentWidth - labelWidth) + 'px');
+		console.log('bingo');
+	});
+
 	// Mocks
 	$('.mock-type-select').on('change', function(e) {
 		if ($(this).val() == 0) {
