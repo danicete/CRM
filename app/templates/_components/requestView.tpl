@@ -63,40 +63,43 @@
 			{/if}
 		</div>
 		<div id="form-view-units">
-			{foreach from=$unitDetails item=unit}
-				<div class="form-view-unit clearfix">
-					<div class="form-view-unit-mocks">
-						<h5>Unit Mocks</h5>
-						{foreach from=$unit.mocks item=mock name=mocksLoop}
-							<a href="{$mock.imgPath}">
-								<img class="mock-view-thumb" src="{$mock.thumbPath}" />
+			<div class="form-view-unit-container">
+				{foreach from=$unitDetails item=unit}
+					<div class="form-view-unit clearfix">
+						<div class="form-view-unit-mocks">
+							<h5>Unit Mocks</h5>
+							{foreach from=$unit.mocks item=mock name=mocksLoop}
+								<a href="{$mock.imgPath}">
+									<img class="mock-view-thumb" src="{$mock.thumbPath}" />
 
-							</a>
+								</a>
+							{/foreach}
+							{if $unit.mocks|@count == 0}
+								<p class="no-mocks-small">No mocks have been added yet.</p>
+							{/if}
+						</div>
+						<h3>{$unit.name}</h3>
+						{if $unit.timeline|@count > 0}
+						{foreach name=optionsLoop from=$unit.timeline item=option}
+						{if $unit.options[$smarty.foreach.optionsLoop.index] == 1}
+						<div class="form-view-unit-option {if $unit.options[$smarty.foreach.optionsLoop.index] == 1}selectedOption{/if}">
+							{$unit.timeline[$smarty.foreach.optionsLoop.index]}
+						</div>
+						{/if}
 						{/foreach}
-						{if $unit.mocks|@count == 0}
-							<p class="no-mocks-small">No mocks have been added yet.</p>
 						{/if}
+						<h4 class="unit-subtitle">Unit Details</h4>
+						<div class="form-view-unit-details">
+							{if $unit.details}
+							{$unit.details}
+							{else}
+							<span style="font-size:12px;">No details were specified for this unit.</span>
+							{/if}
+						</div>
 					</div>
-					<h3>{$unit.name}</h3>
-					{if $unit.timeline|@count > 0}
-					{foreach name=optionsLoop from=$unit.timeline item=option}
-					{if $unit.options[$smarty.foreach.optionsLoop.index] == 1}
-					<div class="form-view-unit-option {if $unit.options[$smarty.foreach.optionsLoop.index] == 1}selectedOption{/if}">
-						{$unit.timeline[$smarty.foreach.optionsLoop.index]}
-					</div>
-					{/if}
-					{/foreach}
-					{/if}
-					<h4 class="unit-subtitle">Unit Details</h4>
-					<div class="form-view-unit-details">
-						{if $unit.details}
-						{$unit.details}
-						{else}
-						<span style="font-size:12px;">No details were specified for this unit.</span>
-						{/if}
-					</div>
-				</div>
-			{/foreach}
+				{/foreach}
+			</div>
+			<div class="clearfix"></div>
 		</div>
 		
 	</div>

@@ -563,8 +563,12 @@ border-bottom-left-radius: 6px;
   border-radius: 4px;
 }
 #form-view-units {
-  width: 65%;
-  float: left;
+  position: relative;
+}
+.form-view-unit-container {
+  position: absolute;
+  top: 0;
+  left: 280px;
 }
 #form-view-user-actions { 
   float: left;
@@ -674,19 +678,22 @@ border-bottom-left-radius: 6px;
 -moz-border-radius-bottomleft: 6px;
 -webkit-border-bottom-left-radius: 6px;
 border-bottom-left-radius: 6px;
-  padding: 10px 20px;
+  padding: 10px 21px 10px 20px;
   margin: 15px 0;
+  width: 538px;
 }
 .form-view-unit:after {
   position: absolute;
-  top: 0px;
-  left: 520px;
-  background: #ebebeb;
+  top: -8px;
+  left: 560px;
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid #C2C2C2;
+  border-right: 19px solid transparent;
   -webkit-box-shadow: 1px 5px 5px rgba(50, 50, 50, 0.16);
   -moz-box-shadow:    1px 5px 5px rgba(50, 50, 50, 0.16);
   box-shadow:         1px 5px 5px rgba(50, 50, 50, 0.16);
-  height: 100px;
-  width: 100px;
+  z-index: -1;
 }
 /*.form-view-unit:before {
   position: absolute;
