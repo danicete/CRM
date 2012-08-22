@@ -159,7 +159,6 @@ $(document).ready(function() {
 	if ($("#fileupload").length > 0) {
 		$('#fileupload').fileupload();
 	    $("#fileupload").bind('fileuploaddone', function(e, data) {
-	    		console.log("WHERE ARE MY BALLS");
 		        var data = eval(data.result);
 		        data = data[0];
 		        var cont = $(document.createElement('div')).addClass('mock mock-overlay').hide();

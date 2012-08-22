@@ -130,6 +130,17 @@ $(document).ready(function() {
       })
     });
 
+	// Set height of absolutely positioned container
+	$("#form-view-units").css('height',$('.form-view-unit-container').css('height'));
+	$.each($('.form-view-unit-mocks'), function(index, value) {
+		var targetHeight = (parseInt($(value).parent().css('height'))+10) +'px';
+		$(value).css('height', targetHeight);
+		$(value).children('.viewport').css('height',targetHeight);
+	});
+
+	setTimeout(function() {$(".form-view-unit-mocks").jScrollPane();}, 100);
+	console.log("I RAN");
+
 	// ---------------------------------------- View page 
 
 	// Followers ----------------------------------------

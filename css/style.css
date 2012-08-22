@@ -562,17 +562,9 @@ border-bottom-left-radius: 6px;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-#form-view-units {
-  position: relative;
-}
-.form-view-unit-container {
-  position: absolute;
-  top: 0;
-  left: 280px;
-}
 #form-view-user-actions { 
   float: left;
-  margin: 0 50px;
+  margin: 0 40px 0 50px;
 }
 #form-view-user-actions h3 {
   text-transform: uppercase;
@@ -665,7 +657,17 @@ border-bottom-left-radius: 6px;
 #form-view-ftp { min-height: 80px; }
 #form-view-ftp p { padding-top: 18px; }
 
-
+#form-view-units {
+  position: relative;
+  width: 67%;
+  float: left;
+  left: 10px;
+}
+.form-view-unit-container {
+  position: absolute;
+  top: 0;
+  left: 280px;
+}
 .form-view-unit {
   position: relative;
   background: #ebebeb;
@@ -678,14 +680,16 @@ border-bottom-left-radius: 6px;
 -moz-border-radius-bottomleft: 6px;
 -webkit-border-bottom-left-radius: 6px;
 border-bottom-left-radius: 6px;
-  padding: 10px 21px 10px 20px;
+  padding: 10px 37px 10px 20px;
   margin: 15px 0;
   width: 538px;
+
 }
 .form-view-unit:after {
   position: absolute;
   top: -8px;
-  left: 560px;
+  left: 576px;
+  content: "";
   width: 0;
   height: 0;
   border-bottom: 8px solid #C2C2C2;
@@ -704,8 +708,18 @@ border-bottom-left-radius: 6px;
   background: black;
 }*/
 .form-view-unit h3 { margin: 5px 0; font-size: 85%; text-transform: uppercase; }
-.form-view-unit-mocks { float: right; min-height: 170px; }
-.form-view-unit-mocks h5 { margin: 5px 30px 5px 0; font-size: 75%; }
+.form-view-unit-mocks { 
+  background: url(../img/assets/unit-mocks-bg.png) no-repeat left center;
+  float: right; 
+  min-height: 170px;
+  padding-left: 20px;
+  margin-left: 5px;
+  overflow: hidden;
+  position: relative;
+  width: 130px;
+}
+
+.form-view-unit-mocks h5 { margin: 5px 10px 5px 0; font-size: 75%; }
 .form-view-unit-mocks a { display: block; font-size: 12px; }
 
 .form-view-unit-mocks .mock-view-thumb {
@@ -715,6 +729,7 @@ border-bottom-left-radius: 6px;
   min-height: 80px;
   font-size: 75%;
   line-height: 175%;
+  padding-right: 150px;
 }
 
 .unit-subtitle { 
