@@ -53,13 +53,10 @@
 		</section><!-- #edit-form-ftp -->
 		<div class="clearfix"></div>
 		<section id="edit-form-units" class="edit-form-section">
-			<h2 class="edit-section-title">Requested Units</h2>
 			{foreach from=$unitsInfo item=unit name=unitsLoop}
 				{include file=$unitDOMblock}
 			{/foreach}
-				<div class="edit-request-container">
-					<div class="addRequestContent">Request Another Unit</div>
-				</div>	
+				<div class="addRequestContent">Request Another Unit</div>
 		</section><!-- #edit-form-units -->
 	</div><!-- .edit-form-container -->
 	<div class="edit-form-user-buttons-container clearfix">

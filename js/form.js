@@ -18,10 +18,14 @@ $(document).ready(function() {
 			$('#list-page-'+(currPage-1)).addClass('active-form-page');
 		}
 
-		if (currPage - 1 < 4) {
+		if (currPage - 1 < 3) {
 			$('.formNext').html("Next");
 			$('.formNext').off("click").on("click", $.proxy(initializeNextButton,$('.formNext')));
 		}
+
+		if (currPage == 2) {
+			$(this).hide();
+		}			
 	});
 
 	$('.formNext').on("click", function() {
@@ -32,10 +36,12 @@ $(document).ready(function() {
 		$('#list-page-'+currPage).removeClass('active-form-page');
 		$('#list-page-'+(currPage+1)).addClass('active-form-page');
 
-		if (currPage + 1 >= 4) {
+		if (currPage + 1 >= 3) {
 			$(this).html("Finish");
 			$(this).off("click").on("click", formFinished);
 		}
+
+		$('.form-button.formBack').show();
 	});
 
 	// Page form count functionality
@@ -50,13 +56,17 @@ $(document).ready(function() {
 			$('.active-form-page').removeClass('active-form-page');
 			$("#list-page-"+clickedPage).addClass('active-form-page');
 
-			if(clickedPage == 4) {
+			if(clickedPage == 3) {
 				$('.formNext').html("Finish");
 				$('.formNext').off("click").on("click", formFinished);
 			} else {
 				$('.formNext').html("Next");
 				$('.formNext').off("click").on("click", $.proxy(initializeNextButton,$('.formNext')));
 			}
+		}
+
+		if(clickedPage == 2 || clickedPage == 3) {
+			$('.form-button.formBack').show();
 		}
 	});
 
@@ -120,6 +130,8 @@ $(document).ready(function() {
 
 	// wysiwyg editor
 	$('.form-ta').cleditor({width: 778});
+
+	$('.form-button.formBack').hide();
 });
 
 // returns the current page number of the form as a number
@@ -139,7 +151,7 @@ function initializeBackButton() {
 			$('#list-page-'+(currPage-1)).addClass('active-form-page');
 		}
 
-		if (currPage - 1 < 4) {
+		if (currPage - 1 < 3) {
 			$('.formNext').html("Next");
 			$('.formNext').off("click").on("click", $.proxy(initializeNextButton,this));
 		}
@@ -154,10 +166,12 @@ function initializeNextButton() {
 	$('#list-page-'+currPage).removeClass('active-form-page');
 	$('#list-page-'+(currPage+1)).addClass('active-form-page');
 
-	if (currPage + 1 >= 4) {
+	if (currPage + 1 >= 3) {
 		$(this).html("Finish");
 		$(this).off("click").on("click", formFinished);
 	}
+
+	$('.form-button.formBack').show();
 }
 
 function formFinished() {
@@ -191,7 +205,7 @@ function formFinished() {
 	/* ---===|| Page 2 ||===--- */
 	var previousDate = 0;
 	var previousValue;
-	$.each($("#form-page-2 .formDatePicker"), function(index, value) {
+	$.each($("#form-page-1 .formDatePicker"), function(index, value) {
 		var thisDate = new Date($(value).val());
 		if(thisDate >= previousDate) {
 			var inputVal = $(value).val().trim();
@@ -260,7 +274,7 @@ function formFinished() {
 		// Show finished page
 		// Submit data to server
 		// Show complete page on successful response
-		$("#form-page-4").fadeOut(400, function() {
+		$("#form-page-3").fadeOut(400, function() {
 			$("#form-finished-page").fadeIn(400,submitFormData);
 		});
 
@@ -329,7 +343,6 @@ function gatherFormData() {
 			});
 
 			dataObject.details = $(value).find('.form-unit-details').val();
-			//dataObject.format  = $(value).find('.form-unit-format-select').val();
 			dataObject.format  = "jpg/png";
 		}
 

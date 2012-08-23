@@ -20,7 +20,6 @@
 	$smarty->assign("formPage1", $smarty->fetch($PATH['physical']['templates'] . '/_formPages/page1.tpl'));
 	$smarty->assign("formPage2", $smarty->fetch($PATH['physical']['templates'] . '/_formPages/page2.tpl'));
 	$smarty->assign("formPage3", $smarty->fetch($PATH['physical']['templates'] . '/_formPages/page3.tpl'));
-	$smarty->assign("formPage4", $smarty->fetch($PATH['physical']['templates'] . '/_formPages/page4.tpl'));
 	$smarty->assign("formFinishedPage", $smarty->fetch($PATH['physical']['templates'] . '/_formPages/finishedPage.tpl'));
 	$smarty->assign("formCompletePage", $smarty->fetch($PATH['physical']['templates'] . '/_formPages/completePage.tpl'));
 

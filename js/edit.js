@@ -102,8 +102,6 @@ $(document).ready(function() {
 		}
 	});
 
-	initializeUnitControls();
-
 	$("#dialogSave").on('click', saveNewUnit);
 
 	$('.addRequestContent').on('click', function() {
@@ -399,62 +397,6 @@ function buildUnitDOM(unitData) {
 		}
 	},"json");
 	
-}
-
-function initializeUnitControls() {
-	$('.request-control-edit').off('click').on('click', function() {
-
-		var request = $(this).parent().parent().parent();
-
-		if (request.hasClass('editting')) {
-
-			request.removeClass('editting');
-
-			request.find('.edit-request-option-checkbox').hide();
-			var detailsVal = request.find('.edit-option-details-textarea').val();
-			if (request.find('.edit-request-details-display').length > 0)
-				request.find('.edit-request-details-display').html(detailsVal).show();
-			request.find('.edit-option-details-textarea').hide();
-
-			request.find('.request-control-edit').html('Edit');
-
-		} else {
-
-			request.addClass('editting');
-			request.find('.edit-request-option-checkbox').show();
-			request.find('.edit-request-details-display').hide();
-			request.find('.edit-option-details-textarea').show();
-			
-			request.find('.request-control-edit').html('Save');
-		}
-	
-	});
-	// Need to add unit remove dialog
-	$('.request-control-remove').off('click').on('click', function() {
-		var self = this;
-		var request = $(this).parent().parent().parent();
-		if (!request.hasClass('editting')) {
-			$("#removeUnitDialog").dialog({width: 450,
-				open: function(event, ui) {
-					$('.ui-dialog-titlebar').text('Remove Unit?');
-					$("#dialogYes").off('click').on('click', function() {
-						$(request).remove();
-						$("#removeUnitDialog").dialog('close');
-					});
-					$("#dialogNo").off('click').on('click', function() {
-						$("#removeUnitDialog").dialog('close');
-					});
-				}
-			});
-		}
-	});
-
-	$('.edit-request-option-checkbox').off('click').on('click', function() {
-		if (!$(this).prop('checked'))
-			$(this).parent().removeClass('editChosenOption');
-		else
-			$(this).parent().addClass('editChosenOption');
-	});
 }
 
 function gatherFormData() {

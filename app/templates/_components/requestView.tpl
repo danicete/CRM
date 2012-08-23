@@ -37,21 +37,21 @@
 			<ul class="user-actions-list">
 				{if $showControls}
 				<li>
-					<a id="actionEdit" class="user-action-button" href="{$path.siteRoot}/edit/?rpin={$requestPIN}">
+					<a id="actionEdit" class="user-action-button user-control-button" href="{$path.siteRoot}/edit/?rpin={$requestPIN}">
 						<div class="action-icon edit"></div>
 						Edit
 					</a>
 				</li>
 				{/if}
 				<li>
-					<a id="actionFollowers" class="user-action-button" href="{$path.siteRoot}/edit/view-followers/?rpin={$requestPIN}">
+					<a id="actionFollowers" class="user-action-button user-control-button" href="{$path.siteRoot}/edit/view-followers/?rpin={$requestPIN}">
 						<div class="action-icon followers"></div>
 						Followers
 					</a>
 				</li>
 				{if $showControls}
 				<li>
-					<a id="actionSubmitMocks" class="user-action-button" href="{$path.siteRoot}/edit/submit-mocks/?rpin={$requestPIN}">
+					<a id="actionSubmitMocks" class="user-action-button user-control-button" href="{$path.siteRoot}/edit/submit-mocks/?rpin={$requestPIN}">
 						<div class="action-icon mocks"></div>
 						Manage Mocks
 					</a>
