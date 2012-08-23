@@ -51,12 +51,12 @@
 				<input type="hidden" class="edit-original-value" value="{$requestData.ftpinfo}" />
 			</div>	
 		</section><!-- #edit-form-ftp -->
-		<div class="clearfix"></div>
+		<div class="addRequestContent">Request Another Unit</div>
 		<section id="edit-form-units" class="edit-form-section">
 			{foreach from=$unitsInfo item=unit name=unitsLoop}
 				{include file=$unitDOMblock}
 			{/foreach}
-				<div class="addRequestContent">Request Another Unit</div>
+				
 		</section><!-- #edit-form-units -->
 	</div><!-- .edit-form-container -->
 	<div class="edit-form-user-buttons-container clearfix">

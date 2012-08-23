@@ -391,7 +391,6 @@ function buildUnitDOM(unitData) {
 
 			var unitElement = $(data.output);
 			unitElement.insertBefore($('.edit-request-container').last());
-			initializeUnitControls();
 		} else {
 
 		}
@@ -422,25 +421,23 @@ function gatherFormData() {
 	var l = $("#edit-form-units").children('.edit-request-container').length;
 	$.each($("#edit-form-units").children('.edit-request-container'), function(index, value){
 
-		if (!(index == (l - 1))) {
-			var unit = $(value);
+		var unit = $(value);
 
-			var unitData = {
-				unitID: unit.children('.hiddenUnitID').length > 0 ? unit.children('.hiddenUnitID').val() : 0,
-				unit_type: unit.children('.requestTypeHolder').val(),
-				unitOptions: new Array(5),
-				details: typeof unit.find('.edit-option-details-textarea').val() === "undefined" ? "" : unit.find('.edit-option-details-textarea').val(),
-				format: typeof unit.find('.edit-option-format-select').val() === "undefined" ? "" : unit.find('.edit-option-format-select').val(),
-			};
+		var unitData = {
+			unitID: unit.children('.hiddenUnitID').length > 0 ? unit.children('.hiddenUnitID').val() : 0,
+			unit_type: unit.children('.requestTypeHolder').val(),
+			unitOptions: new Array(5),
+			details: typeof unit.find('.edit-option-details-textarea').val() === "undefined" ? "" : unit.find('.edit-option-details-textarea').val(),
+			format: typeof unit.find('.edit-option-format-select').val() === "undefined" ? "" : unit.find('.edit-option-format-select').val(),
+		};
 
-			$.each(unit.find('.edit-request-unit-option'), function(oindex, ovalue) {
-				var pushVal = $(ovalue).children('.edit-request-option-checkbox').prop('checked') ? (oindex + 1) : 0;
-				unitData.unitOptions[oindex] = pushVal;
-				
-			});
+		$.each(unit.find('.edit-request-unit-option'), function(oindex, ovalue) {
+			var pushVal = $(ovalue).children('.edit-request-option-checkbox').prop('checked') ? (oindex + 1) : 0;
+			unitData.unitOptions[oindex] = pushVal;
+			
+		});
 
-			formData.units.push(unitData);
-		}
+		formData.units.push(unitData);
 
 	});
 

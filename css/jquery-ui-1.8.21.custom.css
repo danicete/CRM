@@ -55,10 +55,23 @@
 ----------------------------------*/
 .ui-widget { font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; font-size: 1.1em; }
 .ui-widget .ui-widget { font-size: 1em; }
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; font-size: 1em; }
-.ui-widget-content { border: none; background: #eeeeee url(images/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x; color: #333333; }
+.ui-widget-content { border: none; background: #ebebeb; color: #333333;
+-webkit-box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.24);
+-moz-box-shadow:    0px 8px 10px rgba(0, 0, 0, 0.24);
+box-shadow:         0px 8px 10px rgba(0, 0, 0, 0.24);
+font-family: 'latoregular';
+}
 .ui-widget-content a { color: #333333; }
-.ui-widget-header { border: 1px solid #e78f08; background: #f6a828 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+.ui-widget-header { 
+background-image: -khtml-gradient(linear,left top,left bottom,from(#585858),to(#3F3F3F));
+background-image: -moz-linear-gradient(top,#585858,#3F3F3F);
+background-image: -ms-linear-gradient(top,#585858,#3F3F3F);
+background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#585858),color-stop(100%,#3F3F3F));
+background-image: -webkit-linear-gradient(top,#585858,#3F3F3F);
+background-image: -o-linear-gradient(top,#585858,#3F3F3F);
+background-image: linear-gradient(top,#585858,#3F3F3F);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#585858',endColorstr='#3f3f3f',GradientType=0);
+ color: #ffffff; font-weight: bold; }
 .ui-widget-header a { color: #ffffff; }
 
 /* Interaction states
@@ -293,20 +306,20 @@
  *
  * http://docs.jquery.com/UI/Dialog#theming
  */
-.ui-dialog { position: absolute; padding: .2em; width: 300px; overflow: hidden; }
-.ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative;  }
+.ui-dialog { position: absolute; width: 300px; overflow: hidden; }
+.ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative; margin: .2em; }
 .ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; } 
 .ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
 .ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
 .ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
-.ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }
+.ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; margin: .2em; }
 .ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
 .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { float: right; }
 .ui-dialog .ui-dialog-buttonpane button { margin: .5em .4em .5em 0; cursor: pointer; }
 .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
 .ui-draggable .ui-dialog-titlebar { cursor: move; }
 
-* jQuery UI Datepicker 1.8.20
+/* jQuery UI Datepicker 1.8.20
  *
  * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
  * Dual licensed under the MIT or GPL Version 2 licenses.

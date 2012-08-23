@@ -430,7 +430,7 @@ border-bottom-left-radius: 6px;
   margin-left: 30px;
 }
 .form-page #summary,
-.form-page #ftp { margin-top: 20px; position: relative;}
+.form-page #ftp { margin-top: 20px; position: relative; padding-left: 30px; }
 #ftp .ftp-note { font-size: 12px; }
 #campaign > input[type="text"],
 #timeline > input[type="text"] {
@@ -810,7 +810,7 @@ a.form-button { background-position: 0 -50px; color: #DADADA; }
 }
 
 .form-view-unit-mocks h5 { margin: 5px 10px 5px 0; font-size: 75%; }
-.form-view-unit-mocks a { display: block; font-size: 12px; margin-bottom: 3px; }
+.form-view-unit-mocks a { display: inline-block; font-size: 12px; margin-bottom: 3px; }
 
 .form-view-unit-mocks .mock-view-thumb {
   max-width: 105px;
@@ -1011,7 +1011,6 @@ border-radius: 3px;
 .request-control-remove:hover { color: #c56711; }
 .addRequestContent { 
   color: #80b794;
-  float: left;
   cursor: pointer;
   padding-left: 18px;
   background: url(../img/assets/plus.jpg) no-repeat left center;
@@ -1040,6 +1039,18 @@ border-radius: 3px;
 .salesRep-option:hover { background: #F0F0F0; }
 
 .dialog-type-label { display: block; margin-bottom: 12px; }
+select.unit-type-select { font-family: 'latoregular'; }
+.addRequestDialogContent .dialog-ta {
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  width: 97%;
+  border: 1px solid #d0d0d0;
+  padding: 6px;
+  font-family: 'latoregular';
+  font-size: 14px;
+}
+
 .dialog-ta { width: 72%; margin-top: 12px; }
 .dialog-select { margin-top: 12px; }
 .request-dialog-buttons{ text-align: center; }
@@ -1083,29 +1094,30 @@ border-radius: 3px;
 .view-followers-table-header { font-size: 12px; font-weight: bold; margin: 15px 0 5px; }
 .view-followers-table-header > div { display: inline-block; }
 
-.viewFollowersContent,
-.select-followers-container {
+.viewFollowersContent {
   border: 1px solid #D0D0D0;
   -wekit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.viewFollowersContent .follower-container:nth-child(even),
-.select-followers-container .follower-container:nth-child(even) {
-  background: #F2F2F2;
-}
+
 .viewFollowersContent .follower-container,
 .addFollowersUserContainer .follower-container,
 .select-followers-container .follower-container {
-  border: 1px solid #D0D0D0;
   -wekit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   font-size: 14px;
-  border-top-color: #D9D9D9;
-  border-bottom-color: #C5C5C5;
-
+  margin-bottom: 4px;
+  background: #ebebeb;
+  padding: 4px;
+  border: 1px solid #E5E5E5;
 }
+.follower-checkbox {
+  position: relative;
+  top: 2px;
+}
+.follower-name { font-size: 16px; }
 .addFollowersUserContainer .follower-container { cursor: pointer; }
 .add-this-follower {
   background: rgba(13, 89, 149, 0.15);

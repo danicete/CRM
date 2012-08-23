@@ -28,8 +28,8 @@
 
 	/* ---===|| Path Info ||===--- */
 
-	//$PATH['http']['host']				= "http://localhost";
-	$PATH['http']['host']				= "http://localhost:81";
+	$PATH['http']['host']				= "http://localhost";
+	//$PATH['http']['host']				= "http://localhost:81";
 	//$PATH['http']['host']				= "http://jameswatsonv.com";
 	//$PATH['http']['host']				= "http://www.cursesf.local";
 	

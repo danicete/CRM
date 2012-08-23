@@ -11,7 +11,7 @@
 				{/if}
 				{$unit.optionquestion[$smarty.foreach.optionsLoop.index]}
 			</div>
-		{if $smarty.foreach.optionsLoop.index%2 == 1}
+		{if $smarty.foreach.optionsLoop.index%2 == 1 || $smarty.foreach.optionsLoop.last}
 			</div>
 		{/if}
 		{/foreach}
