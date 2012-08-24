@@ -134,32 +134,16 @@ $(document).ready(function() {
 		window.location = window.location;
 	});
 
-	// Mocks
-	$('.mock-type-select').on('change', function(e) {
-		if ($(this).val() == 0) {
-			$('#fileupload').fileupload('disable');
-			$("#addFilesInput").css('top', '9999px');
-	        $("#addFilesButton").addClass('disabled');
-		} else {
-			var unitVal = $(this).val();
-			"use strict";
-			var addIndex = $(this).children('option').index($(this).children('option:selected')) - 1;
-
-            $("#addFilesInput").css('top', '0');
-            $("#addFilesButton").removeClass('disabled');
-            $("#fileupload").find('.hidden-unit-value').val(unitVal);
-            $("#fileupload").find('#hidden-add-index').val(addIndex);
-            $('#fileupload').fileupload('enable');
-		}
-	});
-
 	// Initialize the jQuery File Upload widget:
-	if ($("#fileupload").length > 0) {
-		$('#fileupload').fileupload();
-	    $("#fileupload").bind('fileuploaddone', function(e, data) {
+	if ($(".fileupload-hook").length > 0) {
+		$('.fileupload-hook').fileupload();
+	    $(".fileupload-hook").bind('fileuploaddone', function(e, data) {
 		        var data = eval(data.result);
 		        data = data[0];
 		        console.log(data);
+		        $(this).find('.file-upload-icon').fadeOut();
+		        $(this).find('.display-upload-input').val('');
+
 		        var cont = $(document.createElement('div')).addClass('mock mock-overlay').hide();
 
 		        var del = $(document.createElement('div')).addClass('delete-overlay').attr('title','Remove this mock');
@@ -170,12 +154,15 @@ $(document).ready(function() {
 		        var uploadedImg = $(document.createElement('img')).attr('src', data.thumbnail_url);
 		        var a = $(document.createElement('a')).addClass('view-mock-thumbnail').attr({
 		          href: data.url,
-		          title: data.name
+		          title: data.origName
 		        }).colorbox();
+
+		        var mockName = $(document.createElement('div')).addClass('mock-name').html(data.origName);
 
 		        a.append(uploadedImg);
 		        cont.append(del);
 		        cont.append(a);
+		        cont.append(mockName);
 
 		        $('.mock-type-container').eq(data.addIndex).find('p.no-mocks').remove();
 		        $('.mock-type-container').eq(data.addIndex).append(cont);
@@ -209,8 +196,19 @@ $(document).ready(function() {
 		        });
 
 		  	});
-		$("#addFilesInput").css('top', '9999px');
-		$('#fileupload').fileupload('disable');
+		$('.fileupload-hook').bind('fileuploadadd', function(e, data) {
+			var form = $(data.form);
+			form.find('.display-upload-input').val(data.fileInput[0].value);
+
+			$(this).find('.file-start-upload-button').on('click', function(e) { 
+				//console.log(data);
+				data.submit(); 
+			});
+		});
+		$('.fileupload-hook').bind('fileuploadsubmit', function(e, data) {
+			$(this).find('.file-upload-icon').fadeIn();
+			$(this).find('.file-start-upload-button').off('click');
+		});
 	}
 
 	$.each($("#edit-form-campaign .edit-form-field-value"), function(index,value) {

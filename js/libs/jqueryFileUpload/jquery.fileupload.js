@@ -137,7 +137,7 @@
             // handlers using jQuery's Deferred callbacks:
             // data.submit().done(func).fail(func).always(func);
             add: function (e, data) {
-                data.submit();
+                //data.submit();
             },
 
             // Other callbacks:

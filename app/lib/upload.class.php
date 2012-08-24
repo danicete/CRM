@@ -294,7 +294,12 @@ class UploadHandler
     }
 
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null) {
+        $nameParts = explode('.', $name);
+        $origName = $nameParts[0];
+        $name = globalFunc::randString(10) . '.' . $nameParts[1];
+
         $file = new stdClass();
+        $file->origName = $origName;
         $file->name = $this->trim_file_name($name, $type, $index);
         $file->size = intval($size);
         $file->type = $type;
@@ -358,10 +363,9 @@ class UploadHandler
         // enough if we've gotten to this point).
 
         $db = $this->db;
-        $typeParts = explode('/', $type);
         $nameParts = explode('.', $name);
         $mediaData = array(
-            'name'          => $nameParts[0],
+            'name'          => $origName,
             'file_name'     => $nameParts[0],
             'file_ext'      => $nameParts[1],
             'date_created'  => date("Y-m-d H:i:s")
