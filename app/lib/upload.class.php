@@ -55,8 +55,8 @@ class UploadHandler
                 'thumbnail' => array(
                     'upload_dir' => $options['thumbnail']['upload_dir'],
                     'upload_url' => $options['thumbnail']['upload_url'],
-                    'max_width' => 80,
-                    'max_height' => 80
+                    'max_width' => 150,
+                    'max_height' => 113
                 )
             )
         );

@@ -13,8 +13,8 @@
 			{/foreach}	
 		</div>
 		<div class="follower-actions">
-			<div class="follower-action" id="followerControls" data-url="{$path.siteRoot}/edit/followers/?rpin={$requestPIN}">Follower Controls</div>
-			<div class="follower-action" id="followerClose">Close</div>
+			<div class="request-dialog-button" id="followerControls" data-url="{$path.siteRoot}/edit/followers/?rpin={$requestPIN}">Follower Controls</div>
+			<div class="request-dialog-button" id="followerClose">Close</div>
 <!-- 			<a href="{$path.siteRoot}/edit/followers/?rpin={$requestPIN}"><div class="follower-action" id="followerAdd">Add Follower</div></a>
 			<div class="follower-action" id="followerClose">Close</div> -->
 		</div>

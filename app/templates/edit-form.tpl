@@ -52,6 +52,7 @@
 			</div>	
 		</section><!-- #edit-form-ftp -->
 		<div class="addRequestContent">Request Another Unit</div>
+		<div class="clearfix"></div>
 		<section id="edit-form-units" class="edit-form-section">
 			{foreach from=$unitsInfo item=unit name=unitsLoop}
 				{include file=$unitDOMblock}
@@ -60,9 +61,9 @@
 		</section><!-- #edit-form-units -->
 	</div><!-- .edit-form-container -->
 	<div class="edit-form-user-buttons-container clearfix">
-		<div class="edit-form-user-button" id="resetform">
-			Reset Form
-		</div>
+		<a class="edit-form-user-button" href="{$path.siteRoot}/view/?rpin={$requestPin}">
+			Back to View
+		</a>
 		<div class="edit-form-user-button" id="saveform">
 			Save Changes
 		</div>

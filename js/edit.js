@@ -159,6 +159,7 @@ $(document).ready(function() {
 	    $("#fileupload").bind('fileuploaddone', function(e, data) {
 		        var data = eval(data.result);
 		        data = data[0];
+		        console.log(data);
 		        var cont = $(document.createElement('div')).addClass('mock mock-overlay').hide();
 
 		        var del = $(document.createElement('div')).addClass('delete-overlay').attr('title','Remove this mock');
@@ -166,7 +167,7 @@ $(document).ready(function() {
 
 		        del.append(hidden);
 
-		        var uploadedImg = $(document.createElement('img')).attr('src', data.url);
+		        var uploadedImg = $(document.createElement('img')).attr('src', data.thumbnail_url);
 		        var a = $(document.createElement('a')).addClass('view-mock-thumbnail').attr({
 		          href: data.url,
 		          title: data.name
@@ -220,6 +221,8 @@ $(document).ready(function() {
 
 		$(value).css('width', (parentWidth - labelWidth) + 'px');
 	});
+
+	initializeRemoveButton();
 
 });
 
@@ -390,12 +393,31 @@ function buildUnitDOM(unitData) {
 		if (data.status == "success") {
 
 			var unitElement = $(data.output);
-			unitElement.insertBefore($('.edit-request-container').last());
+			$('.edit-request-container').parent().append(unitElement);
 		} else {
 
 		}
 	},"json");
 	
+}
+
+function initializeRemoveButton() {
+	$('.edit-request-remove').off('click').on('click', function() {
+		var self = this;
+		var request = $(this).parent();
+		$("#removeUnitDialog").dialog({width: 450,
+			open: function(event, ui) {
+				$('.ui-dialog-titlebar').text('Remove Unit?');
+				$("#dialogYes").off('click').on('click', function() {
+					$(request).remove();
+					$("#removeUnitDialog").dialog('close');
+				});
+				$("#dialogNo").off('click').on('click', function() {
+					$("#removeUnitDialog").dialog('close');
+				});
+			}
+		});
+	});
 }
 
 function gatherFormData() {

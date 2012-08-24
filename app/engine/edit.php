@@ -70,10 +70,10 @@
 					"launchDate"
 				);
 				$timelineTitles = array(
-					"1st Mockups",
-					"Client Feedback",
-					"Final Mockups",
-					"Client Final Feedback",
+					"Curse Provides 1st Mockups",
+					"Client Provides Feedback",
+					"Curse Provides Final Mockups",
+					"Client Provides Final Feedback",
 					"Initial Campaign Launch"
 				);
 				$unitTitles = array();

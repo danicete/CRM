@@ -21,6 +21,7 @@
 			<textarea class="edit-option-details-textarea">{$unit.details}</textarea>
 		{/if}
 	</div>
+	<div class="edit-request-remove">Remove</div>
 	<input type="hidden" class="requestTypeHolder" value="{$unit.unit_type}" />
 	<input type="hidden" class="hiddenUnitID" value="{$unit.id}" />
 </div>

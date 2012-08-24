@@ -31,12 +31,25 @@
       {foreach from=$mocksInfo item=unitType name=unitTypeLoop}
         <div class="mock-type-container clearfix">
           <h3>{$unitType.name}</h3>
+          <div class="mock-upload-form">
+            
+          </div>  
           {foreach from=$unitType.mocks item=mock name=mockLoop}
             <div class="mock mock-overlay" id="media-id-{$mock.media_id}">
               <div class="delete-overlay" title="Remove this mock">
                 <input type="hidden" value="{$mock.link_id}" />
               </div>
-              <a class="view-mock-thumbnail" href="{$mock.imgPath}" title="{$mock.title}"><img src="{$mock.imgPath}" /></a>
+              <a class="view-mock-thumbnail" href="{$mock.imgPath}" title="{$mock.title}">
+                <span class="u-clip">
+                  <span class="u-clip-wrapper">
+                    <span class="u-clip-inner">
+                      <img src="{$mock.thumbPath}" />
+                      <span class="u-clip-buddy"></span>
+                    </span>
+                  </span>
+                </span>
+                <!-- <img src="{$mock.imgPath}" /> -->
+              </a>
             </div>
           {/foreach}
           {if $unitType.mocks|@count == 0}

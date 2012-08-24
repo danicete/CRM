@@ -19,7 +19,8 @@ $(document).ready(function() {
 		}
 
 		if (currPage - 1 < 3) {
-			$('.formNext').html("Next");
+			var icon = $('<div>').append($(document.createElement('div')).addClass('form-button-icon next'));
+			$('.formNext').html("Next" + icon.html());
 			$('.formNext').off("click").on("click", $.proxy(initializeNextButton,$('.formNext')));
 		}
 
@@ -60,7 +61,8 @@ $(document).ready(function() {
 				$('.formNext').html("Finish");
 				$('.formNext').off("click").on("click", formFinished);
 			} else {
-				$('.formNext').html("Next");
+				var icon = $('<div>').append($(document.createElement('div')).addClass('form-button-icon next'));
+				$('.formNext').html("Next" + icon.html());
 				$('.formNext').off("click").on("click", $.proxy(initializeNextButton,$('.formNext')));
 			}
 		}
@@ -69,21 +71,6 @@ $(document).ready(function() {
 			$('.form-button.formBack').show();
 		}
 	});
-
-	// Expanding unit request boxes
-	// $('.unit-request-checkbox').on("click", function() {
-	// 	if($(this).siblings('.unit-request-details').is(":visible")) {
-	// 		// Hide it
-	// 		$(this).siblings('.unit-request-details').slideUp('fast', $.proxy(function() {
-	// 			$(this).parent().removeClass('chosen-unit');
-	// 		}, this));
-	// 	} else {
-	// 		// Show it
-	// 		$(this).siblings('.unit-request-details').slideDown('fast', $.proxy(function() {
-	// 			$(this).parent().addClass('chosen-unit');
-	// 		}, this));
-	// 	}
-	// });
 
 	// Unit option checkboxes
 	$('.unit-request-checkbox').on('click', function(e) {

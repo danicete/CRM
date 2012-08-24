@@ -139,7 +139,6 @@ $(document).ready(function() {
 	});
 
 	setTimeout(function() {$(".form-view-unit-mocks").jScrollPane();}, 100);
-	console.log("I RAN");
 
 	// ---------------------------------------- View page 
 
