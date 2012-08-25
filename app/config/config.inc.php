@@ -13,7 +13,7 @@
 	define("DB_PASS", "");
 	define("DB_NAME", "creative");
 
-	// define("DB_HOST", "http://www.cursesf.local/crm");
+	// define("DB_HOST", "10.2.0.31");
 	// define("DB_USER", "root");
 	// define("DB_PASS", "curse35124");
 	// define("DB_NAME", "creative");
