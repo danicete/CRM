@@ -13,15 +13,14 @@
 
 				foreach($formData as $key=>$value) {
 					if($key == "units") {
-						foreach($value as $unit) {
+						foreach($value as &$unit) {
 							$type = intval(substr($unit['unitID'], -1));
-							if (isset($unit['unitOptions'])) {
-								$option1 = in_array(1, $unit['unitOptions']) ? 1 : 0;
-								$option2 = in_array(2, $unit['unitOptions']) ? 1 : 0;
-								$option3 = in_array(3, $unit['unitOptions']) ? 1 : 0;
-								$option4 = in_array(4, $unit['unitOptions']) ? 1 : 0;
-								$option5 = in_array(5, $unit['unitOptions']) ? 1 : 0;
-							}
+							$unit['unitOptions'] = isset($unit['unitOptions']) ? $unit['unitOptions'] : array();
+							$option1 = in_array(1, $unit['unitOptions']) ? 1 : 0;
+							$option2 = in_array(2, $unit['unitOptions']) ? 1 : 0;
+							$option3 = in_array(3, $unit['unitOptions']) ? 1 : 0;
+							$option4 = in_array(4, $unit['unitOptions']) ? 1 : 0;
+							$option5 = in_array(5, $unit['unitOptions']) ? 1 : 0;
 							$details = (isset($unit['details']) && $unit['details'] != "") ? $unit['details'] : "";
 							$format = (isset($unit['format']) && $unit['format'] != "") ? $unit['format'] : "";
 
@@ -102,7 +101,7 @@
 				);
 				$db->insert('user_request_link', $linkData);
 
-				$followers = $formData['followers'];
+				$followers = isset($formData['followers']) ? $formData['followers'] : array();
 				$followerEmails = "";
 				if(is_array($followers) && !empty($followers)) {
 					foreach($followers as $f) {
@@ -117,10 +116,11 @@
 					}
 				}
 				if (SITE_MODE == "production") {
-					$mailOptions = array(
+					$emailOptions = array(
 						'submitterEmail' 	=> $auth->username,
 						'followerEmails'	=> $followerEmails,
-						'pin'				=> $pin	    
+						'pin'				=> $pin,
+						'path'				=> $PATH   
 					);
 					globalFunc::sendEmail("newRequest", $formData, $emailOptions, $db, $smarty);
 				}

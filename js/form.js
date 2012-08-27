@@ -210,26 +210,29 @@ function formFinished() {
 	var previousDate = 0;
 	var previousValue;
 	$.each($("#form-page-1 .formDatePicker"), function(index, value) {
-		var thisDate = new Date($(value).val());
-		if(thisDate >= previousDate) {
-			var inputVal = $(value).val().trim();
-			if (inputVal == '' || inputVal.split('/').length != 3) {
-				$(value).addClass('form-input-error');
-				page2HasError = true;
-			}
-		} else {
-			if(previousValue) {
-				$(previousValue).attr("title", "This value is invalid. It comes after a previous date.");
-				$(previousValue).addClass('form-input-error error-tooltip');
-				page2HasError = true;
+		// skip the first one
+		if(index!=0) {
+			var thisDate = new Date($(value).val());
+			if(thisDate >= previousDate) {
+				var inputVal = $(value).val().trim();
+				if (inputVal == '' || inputVal.split('/').length != 3) {
+					$(value).addClass('form-input-error');
+					page2HasError = true;
+				}
 			} else {
-				$(value).attr("title", "This value is invalid. It comes before a previous date.");
-				$(value).addClass('form-input-error error-tooltip');
-				page2HasError = true;
+				if(previousValue) {
+					$(previousValue).attr("title", "This value is invalid. It comes after a previous date.");
+					$(previousValue).addClass('form-input-error error-tooltip');
+					page2HasError = true;
+				} else {
+					$(value).attr("title", "This value is invalid. It comes before a previous date.");
+					$(value).addClass('form-input-error error-tooltip');
+					page2HasError = true;
+				}
 			}
+			previousDate = thisDate;
+			previousValue = value;
 		}
-		previousDate = thisDate;
-		previousValue = value;
 	});
 
 	if(page1HasError || page2HasError || page3HasError) {

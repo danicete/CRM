@@ -16,17 +16,17 @@ class globalFunc {
 			$query = "SELECT * FROM users WHERE isAdmin = 1";
 			$result = $db->fetchAll($query);
 
-			$userName = $db->fetchRow("SELECT name FROM users WHERE id = " . $formData['curseSalesRep']);
-			$smarty->assign('salesRepName', $userName);
+			$userName = $db->fetchRow("SELECT name FROM users WHERE id = " . $data['curseSalesRep']);
+			$smarty->assign('salesRepName', $userName['name']);
 
 			$adminEmails = array();
 			foreach($result as $admin) {
 				$adminEmails[] = $admin['email'];
 			}
 
-			$to = implode(', ', $adminEmails) . $options['followerEmails'] . $options['submitterEmail'];
-			$subject = "A new Request has been submitted. PIN: " . $data['pin'];
-			$message = $smarty->fetch('_components/emails/newRequest-email.tpl');
+			$to = $options['followerEmails'] . $options['submitterEmail'];
+			$subject = "CREATIVE REQUEST:". $data['campaignName'] .":PIN #" . $data['pin'];
+			$message = $smarty->fetch($options['path']['physical']['templates'] . '/_components/emails/newRequest-email.tpl');
 			$headers = (isset($options['headers']) ? $options['headers'] :  
 						'From: creativerequest@curse.com' . "\r\n" .
 					    'Reply-To: creativerequest@curse.com' . "\r\n" .
@@ -56,8 +56,8 @@ class globalFunc {
 
 				$smarty->assign("requestPin", $options['pin']);
 				$to = implode(', ', $emails);
-				$subject = "A request has been edited. PIN: " . $options['pin'];
-				$message = $smarty->fetch('_components/emails/editRequest-email.tpl');
+				$subject = "CREATIVE REQUEST:". $data['campaignName'] .":PIN #" . $data['pin'];
+				$message = $smarty->fetch($options['path']['physical']['templates'] . '/_components/emails/editRequest-email.tpl');
 				$headers = (isset($options['headers']) ? $options['headers'] :  
 							'From: creativerequest@curse.com' . "\r\n" .
 						    'Reply-To: creativerequest@curse.com' . "\r\n" .
@@ -85,8 +85,8 @@ class globalFunc {
 				}
 				$smarty->assign('mediaID', $options['mediaID']);
 				$to = implode(', ', $emails);
-				$subject = "A mock has been added to Request PIN #" . $data['pin'];
-				$message = $smarty->fetch('_components/emails/mockSubmitted-email.tpl');
+				$subject = "CREATIVE REQUEST:". $data['campaignName'] .":PIN #" . $data['pin'];
+				$message = $smarty->fetch($options['path']['physical']['templates'] . '/_components/emails/mockSubmitted-email.tpl');
 				$headers = (isset($options['headers']) ? $options['headers'] :  
 							'From: creativerequest@curse.com' . "\r\n" .
 						    'Reply-To: creativerequest@curse.com' . "\r\n" .

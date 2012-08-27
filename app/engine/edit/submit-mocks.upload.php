@@ -23,7 +23,7 @@ $options = array(
         'upload_url' => $PATH['http']['assets'] . '/thumbnails/'
     )
 );
-$upload_handler = new UploadHandler($options, $db, isset($_GET['rid']) ? intval($_GET['rid']) : 0, $smarty);
+$upload_handler = new UploadHandler($options, $db, isset($_GET['rid']) ? intval($_GET['rid']) : 0, $smarty, $PATH);
 
 header('Pragma: no-cache');
 header('Cache-Control: no-store, no-cache, must-revalidate');

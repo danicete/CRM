@@ -434,7 +434,8 @@ function gatherFormData() {
 		timeline5: 		$("#timeline5").text(),
 		summary: 		$("#summary").text().trim(),
 		ftpinfo: 		$("#ftpinfo").text().trim(),
-		units:			[]
+		units:			[],
+		pin: 			$("#formPin").val()
 	};
 
 	// Units

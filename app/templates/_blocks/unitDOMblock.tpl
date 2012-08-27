@@ -16,10 +16,8 @@
 		{/if}
 		{/foreach}
 		<div class="clearfix"></div>
-		{if $unit.details}
-			<div class="edit-form-details-header">Unit Details</div>
-			<textarea class="edit-option-details-textarea">{$unit.details}</textarea>
-		{/if}
+		<div class="edit-form-details-header">Unit Details</div>
+		<textarea class="edit-option-details-textarea">{$unit.details}</textarea>
 	</div>
 	<div class="edit-request-remove">Remove</div>
 	<input type="hidden" class="requestTypeHolder" value="{$unit.unit_type}" />

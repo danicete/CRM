@@ -12,9 +12,9 @@
 
 class UploadHandler
 {
-    protected $options, $db, $requestID, $smarty;
+    protected $options, $db, $requestID, $smarty, $PATH;
 
-    function __construct($options=null, $db, $requestID, $smarty) {
+    function __construct($options=null, $db, $requestID, $smarty, $PATH) {
         $this->options = array(
             'script_url' => $options['script_url'],
             'upload_dir' => $options['upload_dir'],
@@ -66,6 +66,7 @@ class UploadHandler
         $this->db = $db;
         $this->smarty = $smarty;
         $this->requestID = $requestID;
+        $this->PATH =       $PATH;
     }
 
     protected function getFullUrl() {
@@ -456,7 +457,8 @@ class UploadHandler
             $query = "SELECT * FROM requests WHERE id = ?";
             $formData = $db->fetchRow($query, $_GET['rid']);
             $emailOptions = array(
-                'mediaID'       => $info[0]->mediaID
+                'mediaID'       => $info[0]->mediaID,
+                'path'              => $this->PATH 
             );
             globalFunc::sendEmail("mockSubmitted", $formData, $emailOptions, $db, $this->smarty);
         }

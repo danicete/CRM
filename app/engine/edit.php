@@ -266,7 +266,8 @@
 			if (SITE_MODE == "production") {
 				$request = $db->fetchRow("SELECT pin FROM requests WHERE id = ?", $formData['formID']);
 				$emailOptions = array(
-					'pin'		=> $request['pin']
+					'pin'		=> $request['pin'],
+					'path'		=> $PATH 
 				);
 				globalFunc::sendEmail("editRequest", $formData, $emailOptions, $db, $smarty);
 			}
