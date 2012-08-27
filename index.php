@@ -7,6 +7,7 @@
 
 	require($PATH['physical']['lib'] . '/smarty/Smarty.class.php');
 	require($PATH['physical']['lib'] . '/Authentication.class.php');
+	require($PATH['physical']['lib'] . '/Data.class.php');
 	require($PATH['physical']['lib']. '/global.func.php');
 	include($PATH['physical']['lib']. '/Zend/Loader/Autoloader.php');
 	$loader = Zend_Loader_Autoloader::getInstance();
@@ -47,6 +48,7 @@
 
 	$page = isset($parts[2]) && $parts[2] != '' ? $parts[2] : "index";
 
+	// Misc variable assignment
 	$smarty->assign("request_uri", $request);
 	$smarty->assign("queryParams", $queryParams);
 	$smarty->assign("path", $PATH['http']);
@@ -55,6 +57,8 @@
 	$smarty->assign("authMessage", "You are not currently signed in.");
 	$smarty->assign("authName", $auth->name);
 	$smarty->assign("authUserID", $auth->userID);
+
+	// Template assignments
 	$smarty->assign("authBar", $PATH['physical']['templates'] . '/_components/authbar.tpl');
 	$smarty->assign("header", $PATH['physical']['templates'] . '/_components/header.tpl');
 	$smarty->assign("footer", $PATH['physical']['templates'] . '/_components/footer.tpl');
