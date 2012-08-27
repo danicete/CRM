@@ -16,6 +16,9 @@ class globalFunc {
 			$query = "SELECT * FROM users WHERE isAdmin = 1";
 			$result = $db->fetchAll($query);
 
+			$userName = $db->fetchRow("SELECT name FROM users WHERE id = " . $formData['curseSalesRep']);
+			$smarty->assign('salesRepName', $userName);
+
 			$adminEmails = array();
 			foreach($result as $admin) {
 				$adminEmails[] = $admin['email'];
