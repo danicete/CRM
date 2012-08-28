@@ -256,7 +256,7 @@ body { background: url('../img/assets/light_toast.png') 0 0 repeat; font-family:
   display: inline-block;
   margin: 0 15px;
   position: relative;
-  top: 24px;
+  top: 32px;
 }
 .optionButton-container > .optionButton { 
   padding: 10px 0 10px 0;
@@ -268,24 +268,18 @@ body { background: url('../img/assets/light_toast.png') 0 0 repeat; font-family:
 .optionButtonContent {
   text-align: left;
   width: 260px;
-  padding: 5px 0px 5px 100px;
+  padding: 12px 0px 12px 100px;
 }
 .optionButton.new .optionButtonContent {
   background: url(../img/assets/new-home-button.png) no-repeat 20px center;
-  padding: 12px 0px 12px 100px;
 }
 .optionButton.edit .optionButtonContent {
   background: url(../img/assets/view-home-button.png) no-repeat 15px center;
   padding-right: 10px;
 }
-.optionButton p { margin: 0 0 0 6px; }
 .optionButton h4 { margin: 5px 0 8px 6px; text-transform: uppercase;}
 
-/* hack city */
-.optionButton.new { position: relative; top: -8px; }
-.optionButton.edit h4 {
-  margin-right: 90px;
-}
+
 
 /* ---===|| Authbar ||===--- */
 
@@ -734,7 +728,6 @@ a.form-button:hover,
 .optionButton:active,
 .request-dialog-button:active,
 .file-start-upload-button:active { position: relative; top: 1px; }
-.optionButton.new:active { top: -7px; }
 
 .action-icon {
   background: url(../img/assets/user-control-sprite.png) no-repeat 0 0;
@@ -1325,7 +1318,7 @@ p.no-mocks-small {
 
 /* lookup */
 .request-listing-container h2 {
-  margin: 0 0 25px 50px;
+  margin: 25px 0 15px 60px;
 }
 .req-list-header {
   width: 652px;

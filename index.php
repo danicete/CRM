@@ -30,10 +30,10 @@
 	$auth = new Authentication($db);
 
 	// Configure Smarty
-	$smarty->setTemplateDir('../app/templates');
-	$smarty->setCompileDir('../app/templates_c');
-	$smarty->setCacheDir('../app/lib/smarty/cache');
-	$smarty->setConfigDir('../app/lib/smarty/config');
+	$smarty->setTemplateDir('app/templates');
+	$smarty->setCompileDir('app/templates_c');
+	$smarty->setCacheDir('app/lib/smarty/cache');
+	$smarty->setConfigDir('app/lib/smarty/config');
 
 	if (!isset($_SERVER['REQUEST_URI'])) {
        $_SERVER['REQUEST_URI'] = substr($_SERVER['PHP_SELF'],1 );

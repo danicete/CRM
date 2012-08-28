@@ -25,7 +25,7 @@ class globalFunc {
 			}
 
 			$to = $options['followerEmails'] . $options['submitterEmail'];
-			$subject = "CREATIVE REQUEST:". $data['campaignName'] .":PIN #" . $data['pin'];
+			$subject = "CREATIVE REQUEST:". $data['campaignName'] ." PIN:" . $data['pin'];
 			$message = $smarty->fetch($options['path']['physical']['templates'] . '/_components/emails/newRequest-email.tpl');
 			$headers = (isset($options['headers']) ? $options['headers'] :  
 						'From: creativerequest@curse.com' . "\r\n" .
@@ -56,7 +56,7 @@ class globalFunc {
 
 				$smarty->assign("requestPin", $options['pin']);
 				$to = implode(', ', $emails);
-				$subject = "CREATIVE REQUEST:". $data['campaignName'] .":PIN #" . $data['pin'];
+				$subject = "CREATIVE REQUEST:". $data['campaignName'] ." PIN:" . $data['pin'];
 				$message = $smarty->fetch($options['path']['physical']['templates'] . '/_components/emails/editRequest-email.tpl');
 				$headers = (isset($options['headers']) ? $options['headers'] :  
 							'From: creativerequest@curse.com' . "\r\n" .
@@ -85,7 +85,7 @@ class globalFunc {
 				}
 				$smarty->assign('mediaID', $options['mediaID']);
 				$to = implode(', ', $emails);
-				$subject = "CREATIVE REQUEST:". $data['campaignName'] .":PIN #" . $data['pin'];
+				$subject = "CREATIVE REQUEST:". $data['campaignName'] ." PIN:" . $data['pin'];
 				$message = $smarty->fetch($options['path']['physical']['templates'] . '/_components/emails/mockSubmitted-email.tpl');
 				$headers = (isset($options['headers']) ? $options['headers'] :  
 							'From: creativerequest@curse.com' . "\r\n" .

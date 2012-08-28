@@ -13,11 +13,11 @@
 
 	if($auth->checkAuth($db)) {
 
+		$recentRequests = array();
+
 		// Get recent request info
 		$result = $db->fetchAll($db->quoteInto("SELECT * FROM user_request_link WHERE user_id = ? ORDER BY date_created ASC LIMIT 5", $auth->userID));
 		if (count($result) > 0) {
-
-			$recentRequests = array();
 
 			foreach ($result as $row) {
 				$request = array();
@@ -34,7 +34,6 @@
 					$recentRequests[] = $request;
 				}
 			}
-			$smarty->assign('recentRequests', $recentRequests);
 		}
 		$privileges = $db->fetchAll("SELECT * FROM privileges");
 
@@ -56,6 +55,7 @@
 			$smarty->assign("listingInfo", $listingInfo);
 		}
 		$smarty->assign("showList", $showList);
+		$smarty->assign('recentRequests', $recentRequests);
 
 		$recentRequestsBlock = $smarty->fetch($PATH['physical']['templates'] . "/_blocks/loggedIn-recentRequestsBlock.tpl");
 	} else {
