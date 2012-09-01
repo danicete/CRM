@@ -541,7 +541,11 @@ body { background: url('../img/assets/light_toast.png') 0 0 repeat; font-family:
 .finished-message-container h3 { text-align: center; }
 .finished-load-wrap { text-align: center; }
 
-.form-input-error { border: 1px solid #F00; background: #FFE0E0; }
+.form-input-error {  }
+#campaign input[type="text"].form-input-error,
+#timeline input[type="text"].form-input-error {
+  border: 1px solid #F00; background: #FFE0E0;
+}
 .form-page-count.page-has-error { border: 1px solid #F00; }
 
 #form-complete-page h2,

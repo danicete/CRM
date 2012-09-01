@@ -13,7 +13,7 @@
     <span>OR</span>
     {$recentRequestsBlock}  
   </div>
-  {if $showList}
+  {if $showList == 1}
   <div class="request-listing-container">
     <h2>All Requests</h2>
     <div class="req-list-wrapper">

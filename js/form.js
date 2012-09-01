@@ -26,7 +26,8 @@ $(document).ready(function() {
 
 		if (currPage == 2) {
 			$(this).hide();
-		}			
+		}	
+		$('.tooltip').remove();		
 	});
 
 	$('.formNext').on("click", function() {
@@ -43,10 +44,12 @@ $(document).ready(function() {
 		}
 
 		$('.form-button.formBack').show();
+		$('.tooltip').remove();
 	});
 
 	// Page form count functionality
 	$('.form-page-count').on("click", function() {
+		$('.tooltip').remove();
 		var clickedPage = parseInt($(this).attr("id").substring($(this).attr("id").length - 1));
 		var currPage = getCurrPage();
 
@@ -160,6 +163,7 @@ function initializeBackButton() {
 			$('.formNext').off("click").on("click", $.proxy(initializeNextButton,this));
 		}
 	});
+	$('.tooltip').remove();
 }
 
 function initializeNextButton() {
@@ -176,6 +180,7 @@ function initializeNextButton() {
 	}
 
 	$('.form-button.formBack').show();
+	$('.tooltip').remove();
 }
 
 function formFinished() {
@@ -206,7 +211,6 @@ function formFinished() {
 		page1HasError = true;
 	}
 
-	/* ---===|| Page 2 ||===--- */
 	var previousDate = 0;
 	var previousValue;
 	$.each($("#form-page-1 .formDatePicker"), function(index, value) {
@@ -217,23 +221,32 @@ function formFinished() {
 				var inputVal = $(value).val().trim();
 				if (inputVal == '' || inputVal.split('/').length != 3) {
 					$(value).addClass('form-input-error');
-					page2HasError = true;
+					page1HasError = true;
 				}
 			} else {
 				if(previousValue) {
-					$(previousValue).attr("title", "This value is invalid. It comes after a previous date.");
+					$(previousValue).attr("title", "Please choose a valid date.");
 					$(previousValue).addClass('form-input-error error-tooltip');
-					page2HasError = true;
+					page1HasError = true;
 				} else {
-					$(value).attr("title", "This value is invalid. It comes before a previous date.");
+					$(value).attr("title", "Please choose a valid date.");
 					$(value).addClass('form-input-error error-tooltip');
-					page2HasError = true;
+					page1HasError = true;
 				}
 			}
 			previousDate = thisDate;
 			previousValue = value;
 		}
 	});
+
+	var unitFound = false;
+	$.each($("#form-page-2 .unit-request-box"), function(index, value) {
+		if($(value).children('.unit-request-checkbox').prop('checked'))
+			unitFound = true;
+
+	});
+	page2HasError = !unitFound;
+
 
 	if(page1HasError || page2HasError || page3HasError) {
 

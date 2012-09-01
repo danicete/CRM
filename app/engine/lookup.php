@@ -42,16 +42,16 @@
 				$showIndex = $p['id'];
 		}
 		$user = $db->fetchRow("SELECT * FROM user_privilege_link WHERE user_id = " . $auth->userID . " AND privilege_id = " . $showIndex);
-		$showList = false;
+		$showList = 0;
 
-		if(count($user) > 0) {
+		if($user) {
 			$listingInfo = $db->fetchAll("SELECT * FROM requests ORDER BY date_created DESC");
 			foreach($listingInfo as &$l) {
 				$user = $db->fetchRow("SELECT * FROM users WHERE id = ". $l['curseSalesRep'] . " LIMIT 1");
 				$l['curseSalesRep'] = $user['name'];
 				$l['pageStatus'] = ($l['status'] == "inProgress") ? "In Progress" : (($l['status'] == "finished") ? "Finished" : (($l['status'] == "needsAttention") ? "Needs Attention" : "Submitted"));
 			}
-			$showList = true;
+			$showList = 1;
 			$smarty->assign("listingInfo", $listingInfo);
 		}
 		$smarty->assign("showList", $showList);
