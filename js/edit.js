@@ -391,7 +391,8 @@ function buildUnitDOM(unitData) {
 		if (data.status == "success") {
 
 			var unitElement = $(data.output);
-			$('.edit-request-container').parent().append(unitElement);
+			$('#edit-form-units').append(unitElement);
+			initializeRemoveButton();
 		} else {
 
 		}
@@ -403,12 +404,17 @@ function initializeRemoveButton() {
 	$('.edit-request-remove').off('click').on('click', function() {
 		var self = this;
 		var request = $(this).parent();
+		var unitID = $(this).siblings('.hiddenUnitID').val();
+		var url = $("#editAjaxURL").val();
 		$("#removeUnitDialog").dialog({width: 450,
 			open: function(event, ui) {
 				$('.ui-dialog-titlebar').text('Remove Unit?');
 				$("#dialogYes").off('click').on('click', function() {
 					$(request).remove();
 					$("#removeUnitDialog").dialog('close');
+					$.post(url, {removeUnit: 1, unitID: unitID}, function(data) {
+						console.log("Unit was deleted on the server.");
+					});
 				});
 				$("#dialogNo").off('click').on('click', function() {
 					$("#removeUnitDialog").dialog('close');
@@ -448,8 +454,7 @@ function gatherFormData() {
 			unitID: unit.children('.hiddenUnitID').length > 0 ? unit.children('.hiddenUnitID').val() : 0,
 			unit_type: unit.children('.requestTypeHolder').val(),
 			unitOptions: new Array(5),
-			details: typeof unit.find('.edit-option-details-textarea').val() === "undefined" ? "" : unit.find('.edit-option-details-textarea').val(),
-			format: typeof unit.find('.edit-option-format-select').val() === "undefined" ? "" : unit.find('.edit-option-format-select').val(),
+			details: typeof unit.find('.edit-option-details-textarea').val() === "undefined" ? "" : unit.find('.edit-option-details-textarea').val()
 		};
 
 		$.each(unit.find('.edit-request-unit-option'), function(oindex, ovalue) {

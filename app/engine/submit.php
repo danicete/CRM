@@ -9,7 +9,7 @@
 				$ret = false;
 
 				$formData = $_POST;
-				$requestedUnitIDs = array();
+				$requestedUnits = array();
 
 				foreach($formData as $key=>$value) {
 					if($key == "units") {
@@ -22,7 +22,6 @@
 							$option4 = in_array(4, $unit['unitOptions']) ? 1 : 0;
 							$option5 = in_array(5, $unit['unitOptions']) ? 1 : 0;
 							$details = (isset($unit['details']) && $unit['details'] != "") ? $unit['details'] : "";
-							$format = (isset($unit['format']) && $unit['format'] != "") ? $unit['format'] : "";
 
 							$data = array(
 								'request_id'	=> 0,
@@ -33,12 +32,10 @@
 								'option4'		=> $option4,
 								'option5'		=> $option5,
 								'details'		=> $details,
-								'format'		=> $format,
 								'date_created'	=> date('Y-m-d H:i:s')
 							);
-							$db->insert('unit_requests', $data);
 
-							$requestedUnitIDs[] = $db->lastInsertId();
+							$requestedUnits[] = $data;
 						}	
 					} else
 						$$key = $value;
@@ -58,7 +55,6 @@
 					'timeline5'		=> date('Y-m-d', strtotime($timeline5)),
 					'summary'		=> $creativeUnits,
 					'ftpinfo'		=> $ftpinfo,
-					'unitDetails'	=> implode(", ", $requestedUnitIDs),
 					'date_created'	=> date('Y-m-d H:i:s')
 				);
 				$db->insert('requests', $requestData);
@@ -66,11 +62,10 @@
 				$requestID = $db->lastInsertId();
 				$formData['formID'] = $requestID;
 
-				$where = "id = " . implode($requestedUnitIDs, " OR id = ");
-				$data = array(
-					'request_id'	=> $requestID
-				);
-				$db->update('unit_requests', $data, $where);
+				foreach($requestedUnits as &$data) {
+					$data['request_id'] = $requestID;
+					$db->insert('unit_requests', $data);
+				} 
 
 				if ($requestID) {
 

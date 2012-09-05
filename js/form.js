@@ -78,6 +78,7 @@ $(document).ready(function() {
 	// Unit option checkboxes
 	$('.unit-request-checkbox').on('click', function(e) {
 		e.preventDefault();
+		$(this).siblings('.unit-request-title').click();
 	});
 	$('.unit-request-title').on('click', function(e) {
 		if($(this).siblings('.unit-request-checkbox').prop('checked'))
@@ -305,7 +306,7 @@ function submitFormData() {
 
 	var formData = gatherFormData();
 
-
+	//console.log(formData);
 	$.post($("#form-submit-URL").data().formsubmiturl + "?t=newrequest", formData, function(data) {
 
 		if (data.status == "success") {
@@ -363,7 +364,6 @@ function gatherFormData() {
 			});
 
 			dataObject.details = $(value).find('.form-unit-details').val();
-			dataObject.format  = "jpg/png";
 		}
 
 		if (Object.keys(dataObject).length > 0)

@@ -137,7 +137,6 @@
 							'unit_type'	=> $row['unit_type'],
 							'name'		=> $unitTypeInfo[(intval($row['unit_type'])-1)]['name'],
 							'details'	=> $row['details'],
-							'format'	=> $row['format'],
 							'options_count'	=> $unitTypeInfo[(intval($row['unit_type'])-1)]['options_count'],
 							'unitOptions'	=> array(),
 							'optionquestion' => array()
@@ -149,6 +148,7 @@
 						$unitsInfo[] = $unit;
 					}
 				}
+				//print_r($unitsInfo);
 				$smarty->assign("requestPin", $pin);
 				$smarty->assign("requestData", $requestData);
 				$smarty->assign("campaignInfo", $campaignInfo);
@@ -196,8 +196,7 @@
 								'option3'	=> in_array(3, (isset($unit['unitOptions']) ? $unit['unitOptions'] : array())) ? 1 : 0,
 								'option4'	=> in_array(4, (isset($unit['unitOptions']) ? $unit['unitOptions'] : array())) ? 1 : 0,
 								'option5'	=> in_array(5, (isset($unit['unitOptions']) ? $unit['unitOptions'] : array())) ? 1 : 0,
-								'details'	=> (isset($unit['details']) && $unit['details'] != "") ? $unit['details'] : "",
-								'format'	=> 'jpg/png'
+								'details'	=> (isset($unit['details']) && $unit['details'] != "") ? $unit['details'] : ""
 							);
 							$db->update('unit_requests', $unitData, 'id = ' . $unit['unitID']);
 
@@ -213,18 +212,16 @@
 								$option5 = in_array(5, $unit['unitOptions']) ? 1 : 0;
 							}
 							$details = (isset($unit['details']) && $unit['details'] != "") ? $unit['details'] : "";
-							$format = (isset($unit['format']) && $unit['format'] != "") ? $unit['format'] : "";
 
 							$data = array(
 								'request_id'		=> $formID,
 								'unit_type'			=> $type,
 								'option1'			=> $option1,
-								'option1'			=> $option2,
-								'option1'			=> $option3,
-								'option1'			=> $option4,
-								'option1'			=> $option5,
+								'option2'			=> $option2,
+								'option3'			=> $option3,
+								'option4'			=> $option4,
+								'option5'			=> $option5,
 								'details'			=> $details,
-								'format'			=> $format,
 								'date_created'		=> date('Y-m-d H:i:s')
 							);
 							$db->insert('unit_requests', $data);
@@ -255,8 +252,7 @@
 				'timeline4'		=> date('Y-m-d', strtotime($timeline4)),
 				'timeline5'		=> date('Y-m-d', strtotime($timeline5)),
 				'summary'		=> $summary,
-				'ftpinfo'		=> $ftpinfo,
-				'unitDetails'	=> implode(", ", $requestedUnitIDs)
+				'ftpinfo'		=> $ftpinfo
 			);
 			$result = $db->update('requests', $requestData, $db->quoteInto("id = ?", $formData['formID']));
 			
@@ -278,6 +274,11 @@
 				echo json_encode(array('status' => 'failed'));
 			}
 
+		} else if (isset($_POST['removeUnit']) && $_POST['removeUnit'] == 1) {
+
+			$unitID = $_POST['unitID'];
+
+			$db->delete('unit_requests', 'id = ' . $unitID);
 		}
 	}
 

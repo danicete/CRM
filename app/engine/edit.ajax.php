@@ -27,6 +27,7 @@
 
 			$unitData = $_POST['unitData'];
 			$unitType = $_POST['unitData']['unit_type'];
+			$unitData['id'] = 0;
 
 			$result = $db->fetchAll("SELECT * FROM unit_types WHERE id = ?", intval($unitType));
 

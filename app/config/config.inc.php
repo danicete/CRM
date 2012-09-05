@@ -18,24 +18,14 @@
 	// define("DB_PASS", "curse35124");
 	// define("DB_NAME", "creative");
 
-	// define("DB_HOST", "jameswatsonv.com");
-	// define("DB_USER", "jlwatson_admin");
-	// define("DB_PASS", "sgb4trjb");
-	// define("DB_NAME", "jlwatson_creative");
-
-	
-	
 
 	/* ---===|| Path Info ||===--- */
 
 	//$PATH['http']['host']				= "http://localhost";
 	$PATH['http']['host']				= "http://localhost:81";
-	//$PATH['http']['host']				= "http://jameswatsonv.com";
 	//$PATH['http']['host']				= "http://sf-vpn.curse.com";
-	
-	$PATH['http']['siteRoot'] 			= $PATH['http']['host'] . "/creative";
-	//$PATH['http']['siteRoot'] 		= $PATH['http']['host'] . "/crm";
 
+	$PATH['http']['siteRoot'] 			= $PATH['http']['host'] . "/crm";
 	$PATH['http']['assets'] 			= $PATH['http']['siteRoot'] . "/assets";
 
 	$PATH['physical']['siteRoot'] 		= dirname(dirname(dirname(__FILE__)));
