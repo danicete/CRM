@@ -164,3 +164,76 @@ Stack trace:
 [06-Jul-2012 23:35:48 UTC] PHP Notice:  Undefined index: formID in /home/jlwatson/public_html/creative/app/templates_c/124bffe5af617fd75c7e4188ed3f45a5d48abb86.file.mockSubmitted-email.tpl.php on line 30
 [06-Jul-2012 23:35:48 UTC] PHP Notice:  Undefined index: requestPin in /home/jlwatson/public_html/creative/app/templates_c/124bffe5af617fd75c7e4188ed3f45a5d48abb86.file.mockSubmitted-email.tpl.php on line 35
 [06-Jul-2012 23:35:48 UTC] PHP Notice:  Trying to get property of non-object in /home/jlwatson/public_html/creative/app/templates_c/124bffe5af617fd75c7e4188ed3f45a5d48abb86.file.mockSubmitted-email.tpl.php on line 35
+[05-Sep-2012 18:27:12 UTC] PHP Warning:  require_once(Zend/Loader.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home/jlwatson/public_html/crm/app/lib/Zend/Loader/Autoloader.php on line 24
+[05-Sep-2012 18:27:12 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required 'Zend/Loader.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/jlwatson/public_html/crm/app/lib/Zend/Loader/Autoloader.php on line 24
+[05-Sep-2012 21:03:11 UTC] PHP Warning:  require_once(Zend/Loader.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home/jlwatson/public_html/crm/app/lib/Zend/Loader/Autoloader.php on line 24
+[05-Sep-2012 21:03:11 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required 'Zend/Loader.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/jlwatson/public_html/crm/app/lib/Zend/Loader/Autoloader.php on line 24
+[05-Sep-2012 21:03:15 UTC] PHP Warning:  require_once(Zend/Loader.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home/jlwatson/public_html/crm/app/lib/Zend/Loader/Autoloader.php on line 24
+[05-Sep-2012 21:03:15 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required 'Zend/Loader.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/jlwatson/public_html/crm/app/lib/Zend/Loader/Autoloader.php on line 24
+[05-Sep-2012 21:03:25 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'premier.asmallorange.com' (using password: YES)' in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=jame...', 'root', 'sgb4trjb', Array)
+#1 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(459): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT * FROM u...', Array)
+#4 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(736): Zend_Db_Adapter_Pdo_Abstract->query('SELECT * FROM u...', Array)
+#5 /home/jlwatson/public_html/crm/app/lib/Authentication.class.php(31): Zend_Db_Adapte in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[05-Sep-2012 21:03:29 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'premier.asmallorange.com' (using password: YES)' in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=jame...', 'root', 'sgb4trjb', Array)
+#1 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(459): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT * FROM u...', Array)
+#4 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(736): Zend_Db_Adapter_Pdo_Abstract->query('SELECT * FROM u...', Array)
+#5 /home/jlwatson/public_html/crm/app/lib/Authentication.class.php(31): Zend_Db_Adapte in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[05-Sep-2012 21:03:33 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'premier.asmallorange.com' (using password: YES)' in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=jame...', 'root', 'sgb4trjb', Array)
+#1 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(459): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT * FROM u...', Array)
+#4 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(736): Zend_Db_Adapter_Pdo_Abstract->query('SELECT * FROM u...', Array)
+#5 /home/jlwatson/public_html/crm/app/lib/Authentication.class.php(31): Zend_Db_Adapte in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[05-Sep-2012 21:04:20 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'premier.asmallorange.com' (using password: YES)' in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=jame...', 'root', 'sgb4trjb', Array)
+#1 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(459): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT * FROM u...', Array)
+#4 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(736): Zend_Db_Adapter_Pdo_Abstract->query('SELECT * FROM u...', Array)
+#5 /home/jlwatson/public_html/crm/app/lib/Authentication.class.php(31): Zend_Db_Adapte in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[05-Sep-2012 21:04:36 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'jlwatson_admin'@'184.173.73.185' to database 'creative'' in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=jame...', 'jlwatson_admin', 'sgb4trjb', Array)
+#1 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(459): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT * FROM u...', Array)
+#4 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(736): Zend_Db_Adapter_Pdo_Abstract->query('SELECT * FROM u...', Array)
+#5 /home/jlwatson/public_html/crm/app/lib/Authentication.class.php(31): Zen in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[05-Sep-2012 22:46:55 UTC] PHP Notice:  Undefined index: salesRepName in /home/jlwatson/public_html/crm/app/templates_c/84cbeda0fb81908a3db9634a0f4a5e1aca5d6c9f.file.newFollower-email.tpl.php on line 37
+[05-Sep-2012 22:46:55 UTC] PHP Notice:  Trying to get property of non-object in /home/jlwatson/public_html/crm/app/templates_c/84cbeda0fb81908a3db9634a0f4a5e1aca5d6c9f.file.newFollower-email.tpl.php on line 37
+[05-Sep-2012 23:15:26 UTC] PHP Notice:  Undefined index: unitDetails in /home/jlwatson/public_html/crm/app/engine/edit/submit-mocks.php on line 19
+[05-Sep-2012 23:15:26 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT * FROM u...', Array)
+#4 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(736): Zend_Db_Adapter_Pdo_Abstract->query('SELECT * FROM u...', Array)
+#5 /home/jlwatson/public_html/crm/app/engine/edit/ in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Statement/Pdo.php on line 234
+[05-Sep-2012 23:23:44 UTC] PHP Notice:  Undefined variable: unitIDs in /home/jlwatson/public_html/crm/app/engine/edit/submit-mocks.php on line 64
+[05-Sep-2012 23:23:44 UTC] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Invalid arguments passed in /home/jlwatson/public_html/crm/app/engine/edit/submit-mocks.php on line 64
+[05-Sep-2012 23:23:44 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Statement.php(320): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Statement->execute(Array)
+#3 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT *, ur.id...', Array)
+#4 /home/jlwatson/public_html/creative/app/lib/Zend/Db/Adapter/Abstract.php(736): Zend_Db_Adapter_Pdo_Abstract->query('SELECT *, ur.id...', Array)
+#5 /home/jlwatson/public_html/crm/app/engine/edit/ in /home/jlwatson/public_html/creative/app/lib/Zend/Db/Statement/Pdo.php on line 234
+[06-Sep-2012 00:58:08 UTC] PHP Warning:  chown() [<a href='function.chown'>function.chown</a>]: Unable to find uid for SF-WEB01\IIS_IUSRS in /home/jlwatson/public_html/crm/app/lib/upload.class.php on line 326
+[06-Sep-2012 00:58:08 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/jlwatson/public_html/crm/app/lib/upload.class.php:326) in /home/jlwatson/public_html/crm/app/lib/upload.class.php on line 439
+[06-Sep-2012 00:58:08 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/jlwatson/public_html/crm/app/lib/upload.class.php:326) in /home/jlwatson/public_html/crm/app/lib/upload.class.php on line 451
+[06-Sep-2012 00:58:27 UTC] PHP Warning:  chown() [<a href='function.chown'>function.chown</a>]: Unable to find uid for SF-WEB01\IIS_IUSRS in /home/jlwatson/public_html/crm/app/lib/upload.class.php on line 326
+[06-Sep-2012 00:58:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/jlwatson/public_html/crm/app/lib/upload.class.php:326) in /home/jlwatson/public_html/crm/app/lib/upload.class.php on line 439
+[06-Sep-2012 00:58:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/jlwatson/public_html/crm/app/lib/upload.class.php:326) in /home/jlwatson/public_html/crm/app/lib/upload.class.php on line 451

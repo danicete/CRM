@@ -3,8 +3,6 @@
 	$jsIncludes[] = "libs/jqueryFileUpload/vendor/jquery.ui.widget";
 	$jsIncludes[] = "libs/jqueryFileUpload/jquery.iframe-transport";
 	$jsIncludes[] = "libs/jqueryFileUpload/jquery.fileupload";
-	//$jsIncludes[] = "libs/jqueryFileUpload/jquery.fileupload-ui";
-	//$jsIncludes[] = "libs/jqueryFileUpload/jquery.fileupload-fp";
 
 	$pin = $_GET['rpin'];
 	$pin = mb_convert_encoding($pin, 'UTF-8', 'UTF-8');
@@ -16,14 +14,12 @@
 	if(count($result) > 0) {
 
 		$request = $result[0];
-		$units = $request['unitDetails'];
-		$unitIDs = explode(',', $units);
 
 		$query = "SELECT * FROM unit_types";
 		$unitTypes = $db->fetchAll($query);
 
-		$query = "SELECT * FROM unit_requests WHERE id = ". implode(' OR id = ', $unitIDs);
-		$units = $db->fetchAll($query);
+		$query = "SELECT * FROM unit_requests WHERE request_id = ?";
+		$units = $db->fetchAll($query,$request['id']);
 
 		$mocksInfo = array();
 		foreach($units as $unit) {
@@ -65,7 +61,8 @@
 			$mocksInfo[] = $unitType;
 		}
 
-		$query = "SELECT *, ur.id FROM unit_requests ur LEFT JOIN unit_types ut ON ur.unit_type = ut.id WHERE ur.id = " . implode(' OR ur.id = ', $unitIDs);
+		//$query = "SELECT *, ur.id FROM unit_requests ur LEFT JOIN unit_types ut ON ur.unit_type = ut.id WHERE ur.id = " . implode(' OR ur.id = ', $unitIDs);
+		$query = "SELECT *, ur.id FROM unit_requests ur LEFT JOIN unit_types ut ON ur.unit_type = ut.id WHERE ur.request_id = " . $request['id'];
 		$result = $db->fetchAll($query);
 
 		$smarty->assign("unitsInfo", $result);

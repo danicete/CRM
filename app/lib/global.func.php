@@ -95,6 +95,30 @@ class globalFunc {
 				mail($to, $subject, $message, $headers);
 			break;
 
+			case "newFollower":
+
+				// Send email to current followers that new followers have been added
+
+				// Send email to new followers
+				$newFollowers = $options['newFollowers'];
+				foreach($newFollowers as $f) {
+					$result = $db->fetchRow($db->quoteInto("SELECT * FROM users WHERE id = ?", $f));
+					
+					$smarty->assign('followerName', $result['name']);
+					$to = $result['email'];
+					$subject = "CREATIVE REQUEST:". $data['campaignName'] ." PIN:" . $data['pin'];
+					$message = $smarty->fetch($options['path']['physical']['templates'] . '/_components/emails/newFollower-email.tpl');
+					$headers = (isset($options['headers']) ? $options['headers'] :  
+								'From: creativerequest@curse.com' . "\r\n" .
+							    'Reply-To: creativerequest@curse.com' . "\r\n" .
+							    'Content-Type: text/html; charset=ISO-8859-1\r\n' . "\r\n" .
+							    'X-Mailer: PHP/' . phpversion()); 
+					mail($to, $subject, $message, $headers);
+				}
+
+				
+			break;
+
 
 		}
 

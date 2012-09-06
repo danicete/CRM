@@ -1,6 +1,7 @@
 <div style="width: 800px;margin: 0  auto;">
 	<h2>New request for: <a href="{$path.siteRoot}/view/?rpin={$formData.pin}">{$formData.campaignName}</a></h2>
-	<p>A new creative request has been submitted.</p>
+	<p>Hello, {$followerName}. You've been added as a follower to this creative request. Please
+		see a summary of the request below as well as a link to the request itself with more information.</p>
 	<div><b>Sales Rep:</b>&nbsp;{$salesRepName}</div>
 	<div><b>Launch Date:</b>&nbsp;{$formData.launchDate}</div>
 	<br />

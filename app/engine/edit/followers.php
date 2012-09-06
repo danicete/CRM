@@ -38,10 +38,29 @@
 		$formID = intval($_POST['formID']);
 		$followers = $_POST['followers'];
 
+		$currentFollowers = $db->fetchAll($db->quoteInto("SELECT user_id FROM user_request_link WHERE request_id = ?",$formID));
+
 		// add
 		foreach ($followers as $f) {
 			$query = "INSERT INTO user_request_link (user_id, request_id, date_created) VALUES ( ".$f.", ".$formID.", '" . date("Y-m-d H:i:s") . "')";
 			$result = $db->query($query);
+		}
+
+		if(SITE_MODE == "production") {
+			//form data
+			$result = $db->fetchRow($db->quoteInto("SELECT * FROM requests WHERE id = ?", $formID));
+			$data = $result;
+
+			$options = array(
+				'formID'	=> $formID,
+				'path'		=> $PATH,
+				'newFollowers' => $followers,
+				'currentFollowers' => $currentFollowers
+			);
+			//send email to new followers
+			foreach ($followers as $f) {
+				globalFunc::sendEmail('newFollower', $data, $options, $db, $smarty);
+			}
 		}
 
 		echo json_encode(array("status" => "success"));

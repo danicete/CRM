@@ -14,8 +14,8 @@
 		{/foreach}
 	</div>
 	<div class="follower-actions">
-		<div class="follower-action" id="followerDialogAdd">Add Follower(s)</div>
-		<div class="follower-action" id="followerDialogClose">Close</div>
+		<div class="request-dialog-button" id="followerDialogAdd">Add Follower(s)</div>
+		<div class="request-dialog-button" id="followerDialogClose">Close</div>
 	</div>
 	<input type="hidden" id="formID" value="{$reqRow.id}" />
 </div>

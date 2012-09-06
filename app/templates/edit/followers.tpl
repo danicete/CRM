@@ -23,7 +23,7 @@
       {/foreach}  
     </div>
     <div class="follower-actions">
-      <div class="follower-action" id="followerAdd">Add Follower</div>
+      <div class="request-dialog-button" id="followerAdd">Add Follower</div>
     </div>
   </div>
   <div id="addFollowerDialog"></div>

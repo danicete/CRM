@@ -319,11 +319,9 @@ class UploadHandler
                         FILE_APPEND
                     );
                     chmod($file_path, 0777);
-                    chown($file_path, "SF-WEB01\\IIS_IUSRS");
                 } else {
                     move_uploaded_file($uploaded_file, $file_path);
                     chmod($file_path, 0777);
-                    chown($file_path, "SF-WEB01\\IIS_IUSRS");
                 }
             } else {
                 // Non-multipart uploads (PUT method support)
@@ -333,7 +331,6 @@ class UploadHandler
                     $append_file ? FILE_APPEND : 0
                 );
                 chmod($file_path, 0777);
-                chown($file_path, "SF-WEB01\\IIS_IUSRS");
             }
             $file_size = filesize($file_path);
             if ($file_size === $file->size) {
