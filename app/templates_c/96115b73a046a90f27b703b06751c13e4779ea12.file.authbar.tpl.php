@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2012-09-05 01:10:03
+<?php /* Smarty version Smarty-3.1.8, created on 2012-09-06 18:32:52
          compiled from "C:\xampp\htdocs\crm\app\templates\_components\authbar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:893050468a4b628c04-16973766%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '96115b73a046a90f27b703b06751c13e4779ea12' => 
     array (
       0 => 'C:\\xampp\\htdocs\\crm\\app\\templates\\_components\\authbar.tpl',
-      1 => 1345252118,
+      1 => 1346894369,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.8',
+  'unifunc' => 'content_50468a4b64d048_99070682',
   'variables' => 
   array (
     'path' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'authMessage' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.8',
-  'unifunc' => 'content_50468a4b64d048_99070682',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_50468a4b64d048_99070682')) {function content_50468a4b64d048_99070682($_smarty_tpl) {?><div class="authbar">
 	<a id="authHomeBtn" href="<?php echo $_smarty_tpl->tpl_vars['path']->value['siteRoot'];?>

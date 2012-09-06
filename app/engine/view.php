@@ -62,7 +62,7 @@
 											$mock = array(
 												'pageName'  => $c == 0 ? 'Initial Mock' : 'Revision ' . $c,
 								 				'title'		=> $media['name'],
-								 				'imgPath'	=> $PATH['http']['assets'] . '/files/' . $media['file_name'] . '.' . $media['file_ext'],
+								 				'imgPath'	=> $PATH['http']['siteRoot'] . '/media/' . $media['name'] . '.' . $media['file_ext'],
 								 				'thumbPath' => $PATH['http']['assets'] . '/thumbnails/' . $media['file_name'] . '.' . $media['file_ext']
 							 				);
 							 				$unitMocks[] = $mock;

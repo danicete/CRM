@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2012-09-05 01:10:03
+<?php /* Smarty version Smarty-3.1.8, created on 2012-09-06 18:32:52
          compiled from "C:\xampp\htdocs\crm\app\templates\_components\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2449350468a4b5ebe08-51325626%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7b9615bffd3e28e74f2340fffabea0afdea97b81' => 
     array (
       0 => 'C:\\xampp\\htdocs\\crm\\app\\templates\\_components\\header.tpl',
-      1 => 1345571037,
+      1 => 1346894368,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.8',
+  'unifunc' => 'content_50468a4b60e237_93730413',
   'variables' => 
   array (
     'path' => 0,
     'authBar' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.8',
-  'unifunc' => 'content_50468a4b60e237_93730413',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_50468a4b60e237_93730413')) {function content_50468a4b60e237_93730413($_smarty_tpl) {?><!doctype html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->

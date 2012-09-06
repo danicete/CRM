@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2012-09-05 01:10:13
+<?php /* Smarty version Smarty-3.1.8, created on 2012-09-06 19:15:43
          compiled from "C:\xampp\htdocs\crm\app\templates\_components\removeUnitDialog.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:712950468a55249e94-93706379%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '916f1d68ef112562c92b2fcf54de5d16a69e6197' => 
     array (
       0 => 'C:\\xampp\\htdocs\\crm\\app\\templates\\_components\\removeUnitDialog.tpl',
-      1 => 1341852424,
+      1 => 1346894368,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.8',
   'unifunc' => 'content_50468a5524b446_69310879',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_50468a5524b446_69310879')) {function content_50468a5524b446_69310879($_smarty_tpl) {?><div id="removeUnitDialog" style="display: none">
 	<p>Are you sure?</p>

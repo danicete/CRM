@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2012-09-05 18:42:30
+<?php /* Smarty version Smarty-3.1.8, created on 2012-09-06 18:32:52
          compiled from "C:\xampp\htdocs\crm\app\templates\edit\followers\removeFollower.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:16810504780f643de56-69101347%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bd304a3b9fabe406a79c4bb52395076e6ca5fb2c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\crm\\app\\templates\\edit\\followers\\removeFollower.tpl',
-      1 => 1345763037,
+      1 => 1346894370,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.8',
+  'unifunc' => 'content_504780f6445974_91288491',
   'variables' => 
   array (
     'reqRow' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.8',
-  'unifunc' => 'content_504780f6445974_91288491',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_504780f6445974_91288491')) {function content_504780f6445974_91288491($_smarty_tpl) {?><div id="removeFollowersDialogContent">
 

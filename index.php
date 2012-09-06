@@ -87,6 +87,7 @@
 		case "saved":
 		case "set-password":
 		case "password-success":
+		case "media":
 			include("app/engine/".$page.".php");
 		break;
 		default:
