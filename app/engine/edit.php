@@ -210,6 +210,12 @@
 								$option3 = in_array(3, $unit['unitOptions']) ? 1 : 0;
 								$option4 = in_array(4, $unit['unitOptions']) ? 1 : 0;
 								$option5 = in_array(5, $unit['unitOptions']) ? 1 : 0;
+							} else {
+								$option1 = 0;
+								$option2 = 0;
+								$option3 = 0;
+								$option4 = 0;
+								$option5 = 0;
 							}
 							$details = (isset($unit['details']) && $unit['details'] != "") ? $unit['details'] : "";
 
