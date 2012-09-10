@@ -153,8 +153,7 @@ $(document).ready(function() {
 
 		        var uploadedImg = $(document.createElement('img')).attr('src', data.thumbnail_url);
 		        var a = $(document.createElement('a')).addClass('view-mock-thumbnail').attr({
-		          href: data.url,
-		          title: data.origName
+		          href: data.url
 		        }).colorbox();
 
 		        var mockName = $(document.createElement('div')).addClass('mock-name').html(data.origName);
@@ -169,7 +168,7 @@ $(document).ready(function() {
 
 		        cont.fadeIn('slow', function() {
 		        	$('.mock').children('.delete-overlay').on('click', function() {
-			          var linkID = $(this).children('input:hidden').val();
+			          var linkID = $(this).parent().children('input:hidden').val();
 			          var self = $(this);
 			          $("#removeMockDialog").dialog({
 			            open: function(event, ui) {
@@ -221,6 +220,8 @@ $(document).ready(function() {
 	});
 
 	initializeRemoveButton();
+
+	initializeMockActions();
 
 });
 
@@ -398,6 +399,41 @@ function buildUnitDOM(unitData) {
 		}
 	},"json");
 	
+}
+
+function initializeMockActions() {
+	$('.mock').on('mouseenter', function() {
+		$(this).data({
+			hovered: 1,
+			startHover: new Date()
+		});
+		window.mockHoverObj = {
+			myself: $(this),
+			that: $(this).children('.mock-actions'),
+			mockInterval: null
+		}
+		window.mockHoverObj.mockInterval = setInterval(function() {
+			var now = new Date();
+			if(now - window.mockHoverObj.myself.data('startHover') >= 600) 
+				window.mockHoverObj.that.fadeIn();
+		}, 100);
+	}).on('mouseleave', function() {
+		$(this).data({
+			hovered: 0,
+			startHover: 0
+		});
+		if(window.mockHoverObj) {
+			clearInterval(window.mockHoverObj.mockInterval);
+			window.mockHoverObj.that.hide();
+		}
+	});
+
+	$('.mock-actions').find('.mock-action').hover(function() {
+		var title = $(this).data('title');
+		$(this).parent().siblings('.mock-action-hint').html(title);
+	}, function() {
+		$(this).parent().siblings('.mock-action-hint').html('');
+	});
 }
 
 function initializeRemoveButton() {

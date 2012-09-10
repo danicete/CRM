@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2012-09-06 18:34:19
+<?php /* Smarty version Smarty-3.1.8, created on 2012-09-11 00:00:49
          compiled from "C:\xampp\htdocs\crm\app\templates\edit\submit-mocks.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:170215048d08baf4212-81392708%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '920c347fcee37ed80e2f0009e74ecf1ef152b0a4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\crm\\app\\templates\\edit\\submit-mocks.tpl',
-      1 => 1346894370,
+      1 => 1347314448,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.8',
+  'unifunc' => 'content_5048d08bba28e3_04051840',
   'variables' => 
   array (
     'header' => 0,
@@ -31,8 +33,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'footer' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.8',
-  'unifunc' => 'content_5048d08bba28e3_04051840',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5048d08bba28e3_04051840')) {function content_5048d08bba28e3_04051840($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ($_smarty_tpl->tpl_vars['header']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
@@ -97,12 +97,8 @@ $_smarty_tpl->tpl_vars['mock']->_loop = true;
 ?>
             <div class="mock mock-overlay" id="media-id-<?php echo $_smarty_tpl->tpl_vars['mock']->value['media_id'];?>
 ">
-              <div class="delete-overlay" title="Remove this mock">
-                <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['mock']->value['link_id'];?>
-" />
-              </div>
+              <div class="delete-overlay" title="Remove this mock"></div>
               <a class="view-mock-thumbnail" href="<?php echo $_smarty_tpl->tpl_vars['mock']->value['imgPath'];?>
-" title="<?php echo $_smarty_tpl->tpl_vars['mock']->value['title'];?>
 ">
                 <span class="u-clip">
                   <span class="u-clip-wrapper">
@@ -116,6 +112,16 @@ $_smarty_tpl->tpl_vars['mock']->_loop = true;
               </a>
               <div class="mock-name"><?php echo $_smarty_tpl->tpl_vars['mock']->value['title'];?>
 </div>
+              <div class="mock-actions">
+                <div class="actions-container">
+                  <div class="mock-action mock-action-approve" data-title="Mock appoved"></div>
+                  <div class="mock-action mock-action-revision" data-title="Needs Revision"></div>
+                  <div class="mock-action mock-action-notes" data-title="View notes"></div>
+                </div>
+                <div class="mock-action-hint"></div>
+              </div>
+              <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['mock']->value['link_id'];?>
+" />
             </div>
           <?php } ?>
           <?php if (count($_smarty_tpl->tpl_vars['unitType']->value['mocks'])==0){?>

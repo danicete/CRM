@@ -105,7 +105,7 @@ $(document).ready(function() {
 	$('.view-mock-thumbnail').colorbox();
 
 	$('.mock').children('.delete-overlay').on('click', function() {
-      var linkID = $(this).children('input:hidden').val();
+      var linkID = $(this).parent().children('input:hidden').val();
       var self = $(this);
       $("#removeMockDialog").dialog({
         open: function(event, ui) {

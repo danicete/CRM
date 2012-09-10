@@ -1167,6 +1167,46 @@ select.unit-type-select { font-family: 'latoregular'; }
 
 /* Submit mocks */
 
+.mock-actions {
+  -wekit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: #D0D0D0;
+  width: 190px;
+  height: 55px;
+  position: absolute;
+  display: none;
+  left: -12px;
+}
+.mock-actions .actions-container {
+  text-align: center;
+}
+.mock-actions .actions-container > div {
+  display: inline-block;
+  margin: 4px 5px 0;
+}
+.mock-action-approve {
+  width: 25px;
+  height: 24px;
+  background: url(../img/assets/mock-approve.png) no-repeat 0 0;
+}
+.mock-action-approve:hover { background-position: 0 -24px; }
+.mock-action-revision {
+  width: 25px;
+  height: 25px;
+  background: url(../img/assets/mock-revision.png) no-repeat 0 0;
+}
+.mock-action-revision:hover { background-position: 0 -25px; }
+.mock-action-notes {
+  width: 17px;
+  height: 24px;
+  background: url(../img/assets/mock-notes.png) no-repeat 0 0;
+}
+.mock-action-notes:hover { background-position: 0 -24px; }
+.mock-actions .mock-action-hint {
+  font-size: 12px;
+  text-align: center;
+}
 .fileupload-uploaded-container {
   background: #F5F5F5;
   border: 1px solid #999;

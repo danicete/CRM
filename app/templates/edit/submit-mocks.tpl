@@ -37,10 +37,8 @@
           </div>  
           {foreach from=$unitType.mocks item=mock name=mockLoop}
             <div class="mock mock-overlay" id="media-id-{$mock.media_id}">
-              <div class="delete-overlay" title="Remove this mock">
-                <input type="hidden" value="{$mock.link_id}" />
-              </div>
-              <a class="view-mock-thumbnail" href="{$mock.imgPath}" title="{$mock.title}">
+              <div class="delete-overlay" title="Remove this mock"></div>
+              <a class="view-mock-thumbnail" href="{$mock.imgPath}">
                 <span class="u-clip">
                   <span class="u-clip-wrapper">
                     <span class="u-clip-inner">
@@ -51,6 +49,15 @@
                 </span>                
               </a>
               <div class="mock-name">{$mock.title}</div>
+              <div class="mock-actions">
+                <div class="actions-container">
+                  <div class="mock-action mock-action-approve" data-title="Mock appoved"></div>
+                  <div class="mock-action mock-action-revision" data-title="Needs Revision"></div>
+                  <div class="mock-action mock-action-notes" data-title="View notes"></div>
+                </div>
+                <div class="mock-action-hint"></div>
+              </div>
+              <input type="hidden" value="{$mock.link_id}" />
             </div>
           {/foreach}
           {if $unitType.mocks|@count == 0}
