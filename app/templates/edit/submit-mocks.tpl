@@ -74,6 +74,7 @@
     <a href="{$path.siteRoot}/view/?rpin={$requestPin}">Back to Request</a>
   </div>    
 </div>
+<input id="mockStatusURL" value="{$path.siteRoot}/edit/mock-status/" />
 <div id="removeMockDialog" style="display:none;">
   {include file=$removeMockDialog}
 </div>

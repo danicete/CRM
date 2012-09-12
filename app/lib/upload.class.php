@@ -366,6 +366,7 @@ class UploadHandler
             'name'          => $origName,
             'file_name'     => $nameParts[0],
             'file_ext'      => $nameParts[1],
+            'approved'      => 0,
             'date_created'  => date("Y-m-d H:i:s")
         );
         $db->insert('media', $mediaData);

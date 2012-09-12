@@ -411,7 +411,7 @@ function initializeMockActions() {
 			myself: $(this),
 			that: $(this).children('.mock-actions'),
 			mockInterval: null
-		}
+		};
 		window.mockHoverObj.mockInterval = setInterval(function() {
 			var now = new Date();
 			if(now - window.mockHoverObj.myself.data('startHover') >= 600) 
@@ -433,6 +433,42 @@ function initializeMockActions() {
 		$(this).parent().siblings('.mock-action-hint').html(title);
 	}, function() {
 		$(this).parent().siblings('.mock-action-hint').html('');
+	});
+
+	$('.mock-action-approve').on('click', function() {
+		var statusURL = $("#mockStatusURL").val();
+		var unitID = $(this).parent().parent().parent().children("input:hidden").val();
+		var clearVal = 0;
+		$.post(statusURL, {approve: 1, unitID: unitID, clear: clearVal}, function(data) {
+			if(data.status == "success") {
+
+			} else {
+
+			}
+		});
+	});
+	$('.mock-action-revision').on('click', function() {
+		var statusURL = $("#mockStatusURL").val();
+		var unitID = $(this).parent().parent().parent().children("input:hidden").val();
+		var clearVal = 0;
+		$.post(statusURL, {revision: 1, unitID: unitID, clear: clearVal}, function(data) {
+			if(data.status == "success") {
+
+			} else {
+				
+			}
+		});
+	});
+	$('.mock-action-notes').on('click', function() {
+		var statusURL = $("#mockStatusURL").val();
+		var unitID = $(this).parent().parent().parent().children("input:hidden").val();
+		$.post(statusURL, {notes: 1, unitID: unitID}, function(data) {
+			if(data.status == "success") {
+
+			} else {
+				
+			}
+		});
 	});
 }
 
