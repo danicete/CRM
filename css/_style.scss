@@ -1,0 +1,266 @@
+// Primay Styles
+
+  // ==========================================================================
+  // Base
+  // ==========================================================================
+
+  html { overflow-x: hidden; }
+  #site { max-width: 880px; margin: 0px auto; }
+  body { background: url('../img/assets/light_toast.png') 0 0 repeat; font-family: 'latoregular'; }
+
+  #content { 
+    @include rounded(bottom-left, 7px);
+    @include rounded(bottom-right, 7px);
+    @include box-shadow(0px 5px 10px rgba(50, 50, 50, 0.3));    
+    background: #FFF;
+    padding-bottom: 30px;
+    position: relative;
+  }
+
+  .half-page-container { width: 500px; margin: 0 auto; }
+  .full-page-container { width: 800px; margin: 0 auto; }
+
+  .maintitle { 
+    margin: 0; 
+    text-align: center;
+    font-family: 'lato_blackregular';
+    text-transform: uppercase;
+  }
+
+  // ==========================================================================
+  // Homepage
+  // ==========================================================================
+
+  .optionButton-container { 
+    text-align: center;
+    > .optionButton { 
+        @include border-radius(10px);      
+        padding: 10px 0 10px 0;
+      }
+  }
+
+  .optionButton-separator {
+    height: 120px;
+    border-right: 1px dotted #373737;
+    display: inline-block;
+    margin: 0 15px;
+    position: relative;
+    top: 32px;
+  }
+
+  .optionButton.new { padding: 10px 5px 10px 15px; }
+
+  .optionButton.new .optionButtonContent { background: url(../img/assets/new-home-button.png) no-repeat 20px center; }
+
+  .optionButtonContent { text-align: left; width: 260px; padding: 12px 0px 12px 100px; }
+
+  .optionButton.edit .optionButtonContent {
+    background: url(../img/assets/view-home-button.png) no-repeat 15px center;
+    padding-right: 10px;
+  }
+  .optionButton h4 { margin: 5px 0 8px 6px; text-transform: uppercase;}
+
+  // ==========================================================================
+  // Authbar
+  // ==========================================================================
+
+  .authbar, .authbar:before, .authbar:after {
+    @include box-shadow(0px 2px 3px rgba(50, 50, 50, 0.33));   
+    background: #545454;
+    background: -moz-linear-gradient(top,  #545454 0%, #3c3c3c 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#545454), color-stop(100%,#3c3c3c));
+    background: -webkit-linear-gradient(top,  #545454 0%,#3c3c3c 100%);
+    background: -o-linear-gradient(top,  #545454 0%,#3c3c3c 100%);
+    background: -ms-linear-gradient(top,  #545454 0%,#3c3c3c 100%);
+    background: linear-gradient(to bottom,  #545454 0%,#3c3c3c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545454', endColorstr='#3c3c3c',GradientType=0 );
+    border-bottom: 1px solid black;
+  }
+
+  .authbar {
+    font-family: 'latoregular';
+    color: #dadada;
+    text-shadow: 1px 1px 1px black, 0 0 0 black, 1px 1px 1px black;
+    position: relative;
+    text-align: right;
+    clear: both;
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    
+    > p { margin: 0; padding: 5px; float: right; }
+   
+    > a { 
+      float: right; 
+      padding: 5px; 
+      color: #dadada; 
+      text-decoration: none;  
+     
+      &:hover { color: rgba(250,250,250,0.5); }
+    }  
+
+    &:before { right: 100%; }
+    &:after { left: 100%; }
+    .authpipe { display: inline-block; margin: 0 2px 0 8px; }
+    .username { color: #C46A18; }
+  }
+
+  .authbar:before, .authbar:after {
+    height: 35px;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 9999px;
+  }
+
+  #authHomeBtn { float: left; margin-left: 15px; }
+
+  // ==========================================================================
+  // Login Popup
+  // ==========================================================================
+
+  #authLogin.loginopen {
+    @include rounded(top-left, 5px);
+    @include rounded(top-right, 5px);    
+    @include box-shadow(1px 2px 5px rgba(50, 50, 50, 0.75));
+    background: #999;
+  }
+
+  #content {
+   .login-container {
+    @include rounded(top-left, 6px);
+    @include rounded(bottom-right, 6px);  
+    @include rounded(bottom-left, 6px);        
+    @include box-shadow(1px 2px 5px rgba(50, 50, 50, 0.75));
+    position: absolute;
+    right: 0;
+    top: 35px;
+    background: #999;
+    }
+
+    .login-container .loginForm { 
+      width: 180px; 
+      height: 140px; 
+      padding: 10px;
+   
+      > label { text-shadow: 0px 1px 1px #CCC; }
+   
+      #submitBtn { margin-top: 10px; }
+    }
+  }
+
+  // ==========================================================================
+  // Lookup
+  // ==========================================================================
+
+  .lookup-options-container {
+    overflow: hidden; 
+    clear: both; 
+    width: 760px;
+    margin: 0 auto;
+
+    h4 { text-align: center; }
+
+    > span { float: left; margin: 50px 35px; }
+  }
+
+  .lookup-pin { width: 300px; float: left; }
+  .lookup-pin-input { text-align: center; margin-top: 15px; }
+
+  .recent-requests-container {  width: 360px; float: left; }
+
+  // ==========================================================================
+  // Status
+  // ==========================================================================
+
+  .status-submitted { background: #FAFAFA; }
+
+  // ==========================================================================
+  // Media Queries
+  // ==========================================================================
+     //EXAMPLE Media Query for Responsive Design.
+     //This example overrides the primary ('mobile first') styles
+     //Modify as content requires.
+
+  @media only screen and (min-width: 35em) {
+    // Style adjustments for viewports that meet the condition
+  }
+
+
+  // ==========================================================================
+  // non-semantic helper classes
+  // ==========================================================================
+     // Please define your styles before this section.
+
+  // For image replacement
+
+  .ir { 
+    display: block; 
+    border: 0; text-indent: -999em; 
+    overflow: hidden; 
+    background-color: transparent; 
+    background-repeat: no-repeat; 
+    text-align: left; direction: ltr; 
+    *line-height: 0; 
+    br { display: none; }
+  }
+
+  // Hide from both screenreaders and browsers: h5bp.com/u 
+
+  .hidden { display: none !important; visibility: hidden; }
+
+  // Hide only visually, but have it available for screenreaders: h5bp.com/v 
+
+  .visuallyhidden { 
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; 
+    margin: -1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: absolute; 
+    width: 1px; 
+  }
+
+  // Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p 
+  
+  .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+  // Hide visually and from screenreaders, but maintain layout 
+  
+  .invisible { visibility: hidden; }
+
+  // Contain floats: h5bp.com/q
+  
+  .clearfix:before, .clearfix:after { content: ""; display: table; }
+  .clearfix:after { clear: both; }
+  .clearfix { *zoom: 1; }
+
+  // ==========================================================================
+  // Print Styles
+  // ==========================================================================
+     //Print styles.
+     //Inlined to avoid required HTTP connection: h5bp.com/r
+
+  @media print {
+    // Black prints faster: h5bp.com/s
+
+    * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } 
+    a, a:visited { text-decoration: underline; }
+    a[href]:after { content: " (" attr(href) ")"; }
+    abbr[title]:after { content: " (" attr(title) ")"; }
+    
+    // Don't show links for images, or javascript/internal links
+
+    .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  
+    pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+    
+    // h5bp.com/t
+
+    thead { display: table-header-group; }  
+    tr, img { page-break-inside: avoid; }
+    img { max-width: 100% !important; }
+    @page { margin: 0.5cm; }
+    p, h2, h3 { orphans: 3; widows: 3; }
+    h2, h3 { page-break-after: avoid; }
+  }

@@ -1,0 +1,196 @@
+// ==========================================================================
+  // New Form
+  // ==========================================================================
+
+  .formContainer { 
+    width: 90%; 
+    margin: 20px auto 0; 
+   
+    input[type=text], #form-auth-name-container { text-align: left; }
+  }
+
+  .form-content { clear: both; overflow: auto; }
+
+  .form-page {
+    #campaign,
+    #timeline { width: 48%; margin-right: 10px; }
+    #campaign { float: left; position: relative; }
+    #timeline { float: right; }
+  }
+
+  #summary .cleditorMain,
+  #ftp .cleditorMain {
+    @include border-radius(3px); 
+    background: #EBEBEB;
+    border: 1px solid #AAA;
+  }
+  #summary > p,
+  #ftp > p { margin: 5px 0; font-size: 14px; }
+  #campaign > label,
+  #timeline > label { float: left; font-weight: bold; font-size: 14px; line-height: 180%; }
+  #campaign > label { margin-left: 30px; }
+  .form-page #summary,
+  .form-page #ftp { margin-top: 20px; position: relative; padding-left: 30px; }
+  #ftp .ftp-note { font-size: 12px; }
+  #campaign > input[type="text"],
+  #timeline > input[type="text"] {
+    @include border-radius(3px); 
+    @include box-shadow(inset 2px 2px 5px 1px rgba(50, 50, 50, 0.2));
+    height: 28px;
+    background: #EBEBEB;
+    text-align: right;
+    border: none;
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+    padding: 0 5px;
+    font-family: 'latoregular';
+    float: right;
+    margin-bottom: 5px;
+  }
+
+  .campaign-form-input { width: 225px; }
+  .advertiser-form-input { width: 260px; }
+  .agency-form-input { width: 285px; }
+  .salesrep-form-input { width: 225px; }
+  .launchDate-form-input{ width: 247px; }
+
+  #timeline {
+    > input[type="text"] { 
+      @include border-radius(3px);       
+      @include box-shadow(inset 2px 2px 5px 1px rgba(50, 50, 50, 0.2));
+      width: 80px; 
+      height: 28px;
+      background: #EBEBEB;
+      text-align: right;
+      border: none;
+      -moz-box-sizing: border-box; 
+      -webkit-box-sizing: border-box; 
+      box-sizing: border-box;
+      padding: 0 5px;
+      font-family: 'latoregular';
+      float: right;
+      margin-bottom: 5px;
+    }
+
+    #timeline1 { width: 165px; }
+    #timeline2 { width: 186px; }
+    #timeline3 { width: 151px; }
+    #timeline4 { width: 147px; }
+    #timeline5 { width: 196px; }
+  }
+
+  .form-page #timeline {
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+  }
+
+  #campaign #form-auth-name-container { float: right; margin: 0 7px 5px 0; }
+
+  .form-bottom-list { 
+    list-style: none; 
+    text-align: right; 
+    padding: 0; 
+    margin: 15px 0 0 0;
+    
+    li { 
+        display: inline-block; position: relative; 
+        &:nth-child(1) { margin: 0 25px 0 0; } 
+        &:nth-child(6) { margin: 0 12px 0 25px; }
+        }
+
+    .form-button { cursor: pointer; }
+    .form-page-count { padding: 10px; cursor: pointer;
+      &:hover { background: #E5E5E5; }
+    }
+    .active-form-page { background: #DFDFDF; }
+    .form-button-icon {
+      width: 9px;
+      height: 15px;
+      position: absolute;
+      top: 8px;
+      z-index: 100;
+      &.next {
+        background: url(../img/assets/form-button-sprite.png) no-repeat 0 0;
+        right: 10px;
+        }
+      &.back {
+        background: url(../img/assets/form-button-sprite.png) no-repeat -9px 0;
+        left: 10px;
+      }
+    }
+  }
+
+  .form-ta { width: 90%; height: 90px; }
+  .form-ast { color: red; }
+  .tooltip {
+    color: #ddd;
+    background: #222;
+    border: 1px solid #fff;
+    padding: 5px;
+    font-size: 12px;
+    text-shadow: 0px -1px 0px #333;
+  }
+
+  .unit-request-box { 
+    border: 1px solid #d0d0d0; 
+    margin-bottom: 4px; 
+    background: #F0F0F0; 
+    cursor: pointer; 
+
+    &:hover:not(.chosen-unit) { border: 1px solid #A2BEEB; }
+
+    h3 { margin: 0; }
+  }
+
+  .unit-request-checkbox { float: left; margin: 7px 7px 0 8px;}
+
+  .unit-request-details { 
+    display: none; 
+    > span { display: block; margin: 10px 0 5px 32px; }
+  }
+
+  .unit-request-title { font-size: 16px; line-height: 28px; }
+
+  .chosen-unit { border: 1px solid #B2CFB4; background: #E4EBE4; }
+
+  .unit-checkbox > input { margin-left: 32px; }
+  .form-unit-details { width: 700px; height: 50px; margin: 0 0 15px 32px; }
+  .login-submit { }
+
+  #form-finished-page { padding: 120px 0; }
+
+  .finished-message-container { 
+    width: 80%; 
+    margin: 0 auto; 
+    h3 { text-align: center; }
+  }
+
+  .finished-load-wrap { text-align: center; }
+
+  .form-input-error {  }
+  #campaign input[type="text"].form-input-error,
+  #timeline input[type="text"].form-input-error { border: 1px solid #F00; background: #FFE0E0; }
+  .form-page-count.page-has-error { border: 1px solid #F00; }
+
+  #form-complete-page {
+    h2 { margin-top: 25px; line-height: 32px; }
+    h5 { margin-bottom: 15px; text-align: center; }
+    .complete-info { width: 50%; margin: 0 auto; text-align: center; }
+  }
+
+  #pin-container {
+    @include border-radius(3px);   
+    @include box-shadow(0px 5px 5px rgba(0, 0, 0, 0.1));
+    display: inline-block;
+    background: #fff;
+    color: #222;
+    text-shadow: 0px 1px 0px #DFDFDF;
+    padding: 10px;
+    margin-top: 15px;
+  }
+  .complete-info {
+    .submit-summary { font-size: 12px; text-align: left; }
+    .form-complete-view { display: block; font-size: 10px; text-align: center; margin-top: 15px; }
+  }

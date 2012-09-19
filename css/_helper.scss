@@ -1,0 +1,22 @@
+
+// ==========================================================================
+// Helper Mixins
+// ==========================================================================
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+} 
+
+@mixin rounded($side, $radius) {
+  border-#{$side}-radius: $radius;
+  -webkit-border-#{$side}-radius: $radius;
+  -moz-border-radius-#{$side}: $radius;
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
